@@ -1,0 +1,27 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import styles from './{{dashCase componentName}}.module.scss';
+
+function {{pascalCase componentName}}({ className, children }) {
+  return (
+    <div className={classNames(className, styles['{{dashCase componentName}}'])}>
+      {children}
+    </div>
+  );
+}
+
+{{pascalCase componentName}}.propTypes = {
+  className: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.string,
+  ]),
+};
+
+{{pascalCase componentName}}.defaultProps = {
+  className: '',
+};
+
+export default {{pascalCase componentName}};

@@ -1,0 +1,22 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import styles from './{{dashCase componentName}}.module.scss';
+
+function {{pascalCase componentName}}({ className }) {
+  return (
+    <div className={classNames(className, styles['{{dashCase componentName}}'])}>
+
+    </div>
+  );
+}
+
+{{pascalCase componentName}}.propTypes = {
+  className: PropTypes.string.isRequired,
+};
+
+{{pascalCase componentName}}.defaultProps = {
+  className: '',
+};
+
+export default {{pascalCase componentName}};
