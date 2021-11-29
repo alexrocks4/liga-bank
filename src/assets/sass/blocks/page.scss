@@ -5,10 +5,12 @@
 }
 
 .page__body {
+  @include font-primary;
   margin: 0;
   padding: 0;
   height: 100%;
   font-weight: 400;
+  color: $color-dark;
 }
 
 .page__framework-container {

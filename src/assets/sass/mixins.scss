@@ -1,0 +1,9 @@
+@mixin font-primary {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-style: normal;
+}
+
+@mixin font-secondary {
+  font-family: "Work Sans", "Arial", sans-serif;
+  font-style: normal;
+}
