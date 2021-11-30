@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { childrenProp } from '../../types/types';
 import styles from './{{dashCase componentName}}.module.scss';
 
 function {{pascalCase componentName}}({ className, children }) {
@@ -13,11 +14,7 @@ function {{pascalCase componentName}}({ className, children }) {
 
 {{pascalCase componentName}}.propTypes = {
   className: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element),
-    PropTypes.string,
-  ]),
+  children: children: childrenProp,
 };
 
 {{pascalCase componentName}}.defaultProps = {
