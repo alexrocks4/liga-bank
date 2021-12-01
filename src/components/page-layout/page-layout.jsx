@@ -1,24 +1,16 @@
 import React from 'react';
-import { childrenProp } from '../../types/types';
+import { Outlet } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 
-function PageLayout({ children }) {
+function PageLayout() {
   return (
     <>
       <Header />
-      {children}
+      <Outlet />
       <Footer />
     </>
   );
 }
-
-PageLayout.propTypes = {
-  children: childrenProp,
-};
-
-PageLayout.defaultProps = {
-  className: '',
-};
 
 export default PageLayout;
