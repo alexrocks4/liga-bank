@@ -1,0 +1,63 @@
+@import "../../assets/sass/variables.scss";
+
+.main-nav {
+  box-sizing: border-box;
+  display: none;
+  flex-grow: 1;
+  padding: 0;
+  font-size: 14px;
+  line-height: 16.41px;
+
+  @media (min-width: $medium-viewport-width) {
+    display: block;
+    width: 431px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    display: block;
+    width: 502px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+
+.main-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0 -20px 0 0 ;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: $large-viewport-width) {
+    margin-right: -27px;
+    padding-top: 10px;
+  }
+}
+
+.main-nav__list-item {
+  margin: 0 23px 10px 0;
+  max-width: 150px;
+
+  @media (min-width: $large-viewport-width) {
+    margin-right: 27px;
+  }
+}
+
+.main-nav__link {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.main-nav__link--active {
+  text-decoration: underline;
+}

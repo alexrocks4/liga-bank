@@ -1,2 +1,22 @@
+// Breakepoints
+$small-viewport-width: 320px;
+$medium-viewport-width: 768px;
+$large-viewport-width: 1024px;
+$large-viewport-width-1: 1137px;
+$extra-large-viewport-width: 1920px;
+
+// Pddings
+$small-viewport-padding: 15px;
+$medium-viewport-padding: 45px;
+$large-viewport-padding: 73.46px;
+$extra-large-viewport-padding: 370px;
+
+// Wrapper widths
+$small-wrapper-width: $small-viewport-width - $small-viewport-padding * 2;
+$medium-wrapper-width: $medium-viewport-width - $medium-viewport-padding * 2;
+$large-wrapper-width: $large-viewport-width - $large-viewport-padding * 2;
+$extra-large-wrapper-width: $extra-large-viewport-width - $extra-large-viewport-padding * 2;
+
 // Colors
 $color-dark: #1F1E25;
+$color-light-light: #ffffff;

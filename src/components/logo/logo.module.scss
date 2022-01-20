@@ -1,0 +1,29 @@
+@import "../../assets/sass/variables.scss";
+
+.logo {
+  position: relative;
+  top: -4px;
+
+  @media (min-width: $medium-viewport-width) {
+    top: 0;
+  }
+}
+
+.logo--active {
+  pointer-events: none;
+}
+
+.logo__picture {
+  width: 116px;
+  height: 19px;
+
+  @media (min-width: $medium-viewport-width) {
+    width: 133px;
+    height: 23px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    width: 149px;
+    height: 25px;
+  }
+}

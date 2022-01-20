@@ -1,0 +1,25 @@
+@import "../../assets/sass/variables.scss";
+
+.wrapper-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  width: ($extra-large-wrapper-width / $extra-large-viewport-width  * 100%);
+  min-width: $large-wrapper-width;
+  max-width: $extra-large-wrapper-width;
+}
+
+.wrapper-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  width: (($small-viewport-width - $small-viewport-padding * 2) / $small-viewport-width * 100%);
+  min-width: $small-viewport-width - $small-viewport-padding * 2;
+
+  @media (min-width: $medium-viewport-width) {
+    width: (($medium-viewport-width - $medium-viewport-padding * 2) / $medium-viewport-width * 100%);
+  }
+
+  @media (min-width: $large-viewport-width) {
+    width: (($large-viewport-width - $large-viewport-padding * 2) / $large-viewport-width * 100%);
+    max-width: $extra-large-viewport-width - $large-viewport-padding * 2;
+  }
+}
