@@ -5,8 +5,12 @@ import styles from './header.module.scss';
 import WrapperFluid from '../wrapper-fluid/wrapper-fluid';
 import Logo from '../logo/logo';
 import MainNav from '../main-nav/main-nav/main-nav';
+import useModal from '../../hooks/use-modal';
+import ModalLogin from '../modal-login/modal-login';
 
 function Header({ className }) {
+  const [isModalOpened, handleModalClose, handleModalOpen] = useModal();
+
   return (
     <header className={classNames(className, styles.header)}>
       <WrapperFluid>
@@ -28,12 +32,14 @@ function Header({ className }) {
                 className={styles['header__login-button']}
                 type="button"
                 aria-label="Авторизоваться"
+                onClick={handleModalOpen}
               >
                 <span className={styles['header__login-button-text']}>Войти в Интернет-банк</span>
               </button>
             </li>
           </ul>
         </div>
+        {isModalOpened && <ModalLogin onClose={handleModalClose} />}
       </WrapperFluid>
     </header>
   );

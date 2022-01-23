@@ -9,6 +9,7 @@ const AppRoute = {
   CONTACTS: '/contacts',
   QUESTION: '/question',
   LOGIN: '/login',
+  PASSWORD: 'password',
 };
 
 const Breakpoint = {
@@ -17,7 +18,14 @@ const Breakpoint = {
   LARGE: '1024px',
 };
 
+const ButtonRootElement = {
+  ROUTER_LINK: 'router-link',
+  ROUTER_NAV_LINK: 'router-nav-link',
+  BUTTON: 'button',
+};
+
 export {
   AppRoute,
-  Breakpoint
+  Breakpoint,
+  ButtonRootElement
 };

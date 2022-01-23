@@ -15,6 +15,7 @@ function App() {
         <Route path={AppRoute.DEPOSITS} element={<UnderConstruction />} />
         <Route path={AppRoute.ASSURANCE} element={<UnderConstruction />} />
         <Route path={AppRoute.ONLINE_SERVICES} element={<UnderConstruction />} />
+        <Route path={AppRoute.PASSWORD} element={<UnderConstruction />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -3,14 +3,6 @@
 .wrapper-fluid {
   margin-left: auto;
   margin-right: auto;
-  width: ($extra-large-wrapper-width / $extra-large-viewport-width  * 100%);
-  min-width: $large-wrapper-width;
-  max-width: $extra-large-wrapper-width;
-}
-
-.wrapper-fluid {
-  margin-left: auto;
-  margin-right: auto;
   width: (($small-viewport-width - $small-viewport-padding * 2) / $small-viewport-width * 100%);
   min-width: $small-viewport-width - $small-viewport-padding * 2;
 

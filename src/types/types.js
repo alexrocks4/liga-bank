@@ -1,9 +1,5 @@
 import PropTypes from 'prop-types';
 
-const childrenProp = PropTypes.oneOfType([
-  PropTypes.element,
-  PropTypes.arrayOf(PropTypes.element),
-  PropTypes.string,
-]);
+const childrenProp = PropTypes.node;
 
 export { childrenProp };
