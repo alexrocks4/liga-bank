@@ -24,8 +24,13 @@ const ButtonRootElement = {
   BUTTON: 'button',
 };
 
+const LocalStorageKey = {
+  LIGA_BANK_AUTH: 'liga-bank-auth',
+};
+
 export {
   AppRoute,
   Breakpoint,
-  ButtonRootElement
+  ButtonRootElement,
+  LocalStorageKey
 };
