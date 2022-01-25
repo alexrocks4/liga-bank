@@ -13,9 +13,9 @@ const AppRoute = {
 };
 
 const Breakpoint = {
-  SMALL: '320px',
-  MEDIUM: '768px',
-  LARGE: '1024px',
+  SMALL: 320,
+  MEDIUM: 768,
+  LARGE: 1024,
 };
 
 const ButtonRootElement = {

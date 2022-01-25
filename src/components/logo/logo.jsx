@@ -21,11 +21,11 @@ function Logo({ className }) {
     >
       <picture>
         <source
-          media={`(min-width: ${Breakpoint.LARGE})`}
+          media={`(min-width: ${Breakpoint.LARGE}px)`}
           srcSet={logoDesktopImg}
         />
         <source
-          media={`(min-width: ${Breakpoint.MEDIUM})`}
+          media={`(min-width: ${Breakpoint.MEDIUM}px)`}
           srcSet={logoTabletImg}
         />
         <img
