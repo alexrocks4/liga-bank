@@ -28,6 +28,7 @@ module.exports = (plop) => {
         {
           type: 'add',
           path: 'src/components/{{dashCase componentName}}/{{dashCase componentName}}.module.scss',
+          templateFile: 'plop-templates/component.module.scss.hbs',
         },
       ];
 
