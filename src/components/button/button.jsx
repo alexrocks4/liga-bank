@@ -37,6 +37,17 @@ function Button({ children, className, rootElement, ...props }) {
     );
   }
 
+  if (rootElement === ButtonRootElement.LINK) {
+    content = (
+      <a
+        {...props}
+        className={classNames(className, styles.button)}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return content;
 }
 

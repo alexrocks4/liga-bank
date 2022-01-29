@@ -63,9 +63,10 @@ function ModalLogin({ onClose }) {
 
   return (
     <Modal
+      className={styles['modal-login']}
       onClose={onClose}
     >
-      <section className={styles['modal-login']}>
+      <section className={styles['modal-login__container']}>
         <h2 className="visually-hidden">Форма авторизации</h2>
         <header className={styles['modal-login__header']}>
           <picture>

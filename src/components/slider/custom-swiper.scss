@@ -1,0 +1,16 @@
+@import "../../assets/sass/variables.scss";
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 7px;
+
+  @media (min-width: $medium-viewport-width) {
+    bottom: 12px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    bottom: 36px;
+  }
+}

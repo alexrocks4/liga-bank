@@ -2,22 +2,23 @@
 
 .header {
   padding-top: 18px;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   background-color: $color-light;
   color: $color-dark;
 
   @media (min-width: $medium-viewport-width) {
     padding-top: 27px;
-    padding-bottom: 15px;
+    padding-bottom: 16px;
   }
 
   @media (min-width: $large-viewport-width) {
-    padding-bottom: 22px;
+    padding-bottom: 24px;
   }
 }
 
 .header--nav-opened {
   position: fixed;
+  z-index: 2;
   inset: 0;
   font-size: 16px;
   line-height: 19px;

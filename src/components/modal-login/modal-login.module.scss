@@ -1,6 +1,10 @@
 @import "../../assets/sass/variables.scss";
 
 .modal-login {
+  z-index: 2;
+}
+
+.modal-login__container {
   box-sizing: border-box;
   min-height: 455px;
   width: 290px;

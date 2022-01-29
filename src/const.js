@@ -22,6 +22,7 @@ const ButtonRootElement = {
   ROUTER_LINK: 'router-link',
   ROUTER_NAV_LINK: 'router-nav-link',
   BUTTON: 'button',
+  LINK: 'a',
 };
 
 const LocalStorageKey = {
