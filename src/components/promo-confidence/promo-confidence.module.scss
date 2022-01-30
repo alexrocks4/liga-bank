@@ -1,1 +1,132 @@
 @import "../../assets/sass/variables.scss";
+
+.promo-confidence {
+  display: grid;
+  grid-template-columns: minmax(0, auto);
+  grid-template-rows: minmax(0, auto);
+  margin: 0;
+  height: 226px;
+  background-color: $color-light-2;
+  padding: 0;
+  overflow: hidden;
+
+  @media (min-width: $medium-viewport-width) {
+    min-height: 300px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    min-height: 400px;
+  }
+}
+
+.promo-confidence__wrapper {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  z-index: 2;
+}
+
+.promo-confidence__container {
+  padding-top: 38px;
+  padding-bottom: 35px;
+  width: 65%;
+
+  @media (min-width: $medium-viewport-width) {
+    padding-top: 63px;
+    padding-left: 42px;
+    width: 48%;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    padding-top: 103px;
+    padding-left: 170px;
+    width: 34%;
+  }
+}
+
+.promo-confidence__title {
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  width: 188px;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 45px;
+  color: $color-dark;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 9px;
+    width: auto;
+    font-size: 46px;
+    line-height: 54px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 6px;
+    font-size: 54px;
+    line-height: 63px;
+  }
+}
+
+
+.promo-confidence__description {
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 0;
+  width: 141px;
+  font-size: 16px;
+  line-height: 19px;
+  color: $color-dark-5;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 29px;
+    width: auto;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 36px;
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+
+.promo-confidence__img-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  z-index: 1;
+}
+
+.promo-confidence__img {
+  position: relative;
+  left: 156px;
+  width: 772px;
+  height: 226px;
+  object-fit: contain;
+
+  @media (min-width: $small-viewport-width-1) {
+    left: 126px;
+  }
+
+  @media (min-width: $small-viewport-width-2) {
+    left: 6px;
+  }
+
+  @media (min-width: $medium-viewport-width) {
+    left: 98px;
+    width: 1025px;
+    height: 300px;
+  }
+
+  @media (min-width: $medium-viewport-width-1) {
+    left: 0;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    width: 1366px;
+    height: 400px;
+  }
+}
