@@ -1,5 +1,11 @@
 @import "../../assets/sass/variables.scss";
 
+.promo {
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 60px;
+  }
+}
+
 .promo__slider-bullet {
   display: inline-block;
   border-radius: 50%;

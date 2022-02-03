@@ -8,6 +8,7 @@ import { ButtonRootElement } from '../../const';
 function Button({ children, className, rootElement, ...props }) {
   let content = (
     <button
+      type="button"
       {...props}
       className={classNames(className, styles.button)}
     >

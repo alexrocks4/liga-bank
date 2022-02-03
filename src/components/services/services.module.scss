@@ -1,0 +1,9 @@
+@import "../../assets/sass/variables.scss";
+
+.services__tabs-wrapper {
+  display: none;
+
+  @media (min-width: $large-viewport-width) {
+    display: block;
+  }
+}
