@@ -12,9 +12,14 @@ function TabSlide({
   button,
   footer,
   picture,
+  isCustom,
 }) {
   return (
-    <article className={classNames(className, styles['tab-slide'])}>
+    <article className={classNames(
+      className,
+      styles['tab-slide'],
+      {[styles['tab-slide--custom']]: isCustom})}
+    >
       <h2 className="visually-hidden">{header}</h2>
       <WrapperFluid className={styles['tab-slide__wrapper']}>
         <div className={styles['tab-slide__container']}>
@@ -45,7 +50,7 @@ function TabSlide({
 TabSlide.propTypes = {
   className: PropTypes.string.isRequired,
   header: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node,
   advantages: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     data: PropTypes.string.isRequired,
@@ -53,10 +58,12 @@ TabSlide.propTypes = {
   button: PropTypes.node,
   footer: PropTypes.node,
   picture: PropTypes.node,
+  isCustom: PropTypes.bool,
 };
 
 TabSlide.defaultProps = {
   className: '',
+  isCustom: false,
 };
 
 export default TabSlide;

@@ -10,6 +10,7 @@ const AppRoute = {
   QUESTION: '/question',
   LOGIN: '/login',
   PASSWORD: 'password',
+  CALCULATOR: '/#calculator',
 };
 
 const Breakpoint = {

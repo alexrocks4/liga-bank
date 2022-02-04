@@ -1,7 +1,9 @@
 @import "../../assets/sass/variables.scss";
 
 .tab-slide {
+  box-sizing: border-box;
   margin: 0;
+  min-height: 362px;
   background-color: $color-light-4;
   padding: 0;
   padding-top: 54px;
@@ -10,6 +12,7 @@
   @media (min-width: $large-viewport-width) {
     margin-left: auto;
     margin-right: auto;
+    min-height: 380px;
     padding-top: 52px;
     width: (($large-viewport-width - $large-viewport-padding * 2) / $large-viewport-width * 100%);
     max-width: $extra-large-viewport-width - $large-viewport-padding * 2;
@@ -69,7 +72,6 @@
   margin: 0;
   margin-bottom: 26px;
   padding: 0;
-  min-height: 105px;
   width: 80%;
   list-style: none;
   font-size: 14px;
@@ -86,6 +88,16 @@
     margin-bottom: 35px;
     font-size: 18px;
     line-height: 23px;
+  }
+}
+
+.tab-slide--custom .tab-slide__list {
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 28px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 27px;
   }
 }
 
