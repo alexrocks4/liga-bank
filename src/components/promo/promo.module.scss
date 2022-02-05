@@ -7,6 +7,8 @@
 }
 
 .promo__slider-bullet {
+  position: relative;
+  bottom: -3px;
   display: inline-block;
   border-radius: 50%;
   width: 6px;
@@ -27,12 +29,17 @@
   }
 
   @media (min-width: $medium-viewport-width) {
+    bottom: 2px;
     width: 8px;
     height: 8px;
 
     &:not(:last-of-type) {
       margin-right: 8px;
     }
+  }
+
+  @media (min-width: $large-viewport-width) {
+    bottom: 26px;
   }
 }
 

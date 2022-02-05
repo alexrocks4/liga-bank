@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import styles from './slider.module.scss';
 import 'swiper/swiper.scss';
 import 'swiper/modules/pagination/pagination.scss';
-import './custom-swiper.scss';
 
 SwiperCore.use([Pagination, Autoplay]);
 

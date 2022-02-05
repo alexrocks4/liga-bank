@@ -9,6 +9,8 @@ import Credits from '../credits/credits';
 import Insurance from '../insurance/insurance';
 import OnlineServices from '../online-services/online-services';
 import WrapperFluid from '../wrapper-fluid/wrapper-fluid';
+import { Pagination } from 'swiper';
+import { Breakpoint } from '../../const';
 
 const services = [
   {
@@ -39,8 +41,15 @@ const services = [
 
 function Services({ className }) {
   const [ currentTabId, setCurrentTabId ] = useState(0);
+  const [ swiperInstance, setSwiperInstance] = useState(null);
 
-  const handleTabChange = (id) => setCurrentTabId(id);
+  const handleTabClick = (id) => {
+    setCurrentTabId(id);
+
+    if (swiperInstance) {
+      swiperInstance.slideTo(id);
+    }
+  };
 
   return (
     <section className={classNames(className, styles['services'])}>
@@ -50,10 +59,25 @@ function Services({ className }) {
           className={styles['services__tabs']}
           activeTabId={currentTabId}
           data={services}
-          onTabClick={handleTabChange}
+          onTabClick={handleTabClick}
         />
       </WrapperFluid>
-      <Slider slides={services} />
+      <Slider
+        modules={[Pagination]}
+        pagination={{
+          clickable: true,
+          bulletClass: styles['services__pagination-bullet'],
+          bulletActiveClass: styles['services__pagination-bullet--active'],
+        }}
+        breakpoints={{
+          [Breakpoint.LARGE]: {
+            allowTouchMove: false,
+          },
+        }}
+        slides={services}
+        onSlideChange={(swiper) => setCurrentTabId(swiper.activeIndex)}
+        onSwiper={(swiper) => setSwiperInstance(swiper)}
+      />
     </section>
   );
 }
