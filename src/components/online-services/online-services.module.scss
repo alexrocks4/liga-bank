@@ -1,1 +1,65 @@
 @import "../../assets/sass/variables.scss";
+
+
+.online-services__link {
+  display: block;
+  border-radius: 4px;
+  padding: 13px 20px 14px;
+  background-color: $color-accent;
+  color: $color-light;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+
+  @media (min-width: $medium-viewport-width) {
+    display: inline-block;
+    padding: 14px 32px 15px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    padding: 16px 32px 16px;
+  }
+
+}
+
+.online-services__img {
+  position: relative;
+  top: 44px;
+  right: -15px;
+  width: 87px;
+  height: 113px;
+
+  @media (min-width: $small-viewport-width-1) {
+    right: 10%;
+  }
+
+  @media (min-width: $small-viewport-width-2) {
+    right: 20%;
+  }
+
+  @media (min-width: $medium-viewport-width) {
+    top: 6px;
+    right: 1px;
+    width: 289px;
+    height: 260px;
+  }
+
+  @media (min-width: $medium-viewport-width-1) {
+    right: 10%;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    top: -4px;
+    right: 35px;
+    width: 440px;
+    height: 290px
+  }
+
+  @media (min-width: $large-viewport-width-2) {
+    top: 1px;
+    right: 135px;
+  }
+}

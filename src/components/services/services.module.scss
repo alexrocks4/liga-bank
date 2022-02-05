@@ -1,5 +1,11 @@
 @import "../../assets/sass/variables.scss";
 
+.services {
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 110px;
+  }
+}
+
 .services__tabs-wrapper {
   display: none;
 

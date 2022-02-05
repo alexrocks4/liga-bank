@@ -13,12 +13,14 @@ function TabSlide({
   footer,
   picture,
   isCustom,
+  isOnlineServices,
 }) {
   return (
     <article className={classNames(
       className,
       styles['tab-slide'],
-      {[styles['tab-slide--custom']]: isCustom})}
+      {[styles['tab-slide--custom']]: isCustom},
+      {[styles['tab-slide--online-services']]: isOnlineServices})}
     >
       <h2 className="visually-hidden">{header}</h2>
       <WrapperFluid className={styles['tab-slide__wrapper']}>
@@ -53,17 +55,19 @@ TabSlide.propTypes = {
   title: PropTypes.node,
   advantages: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    data: PropTypes.string.isRequired,
+    data: PropTypes.node.isRequired,
   })),
   button: PropTypes.node,
   footer: PropTypes.node,
   picture: PropTypes.node,
   isCustom: PropTypes.bool,
+  isOnlineServices: PropTypes.bool,
 };
 
 TabSlide.defaultProps = {
   className: '',
   isCustom: false,
+  isOnlineServices: false,
 };
 
 export default TabSlide;
