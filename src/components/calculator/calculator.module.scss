@@ -1,0 +1,28 @@
+@import "../../assets/sass/variables.scss";
+
+.calclulator {
+  padding: 0;
+}
+
+.calculator__title {
+  margin: 0;
+  margin-bottom: 22px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 31px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 29px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 49px;
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 57px;
+  }
+}

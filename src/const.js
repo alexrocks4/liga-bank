@@ -30,9 +30,21 @@ const LocalStorageKey = {
   LIGA_BANK_AUTH: 'liga-bank-auth',
 };
 
+const CreditType = {
+  MORTGAGE: 'mortgage',
+  AUTO: 'auto',
+};
+
+const formTypes = [
+  { value: CreditType.MORTGAGE, label: 'Ипотечное кредитование' },
+  { value: CreditType.AUTO, label: 'Автомобильное кредитование' },
+];
+
 export {
   AppRoute,
   Breakpoint,
   ButtonRootElement,
-  LocalStorageKey
+  LocalStorageKey,
+  formTypes,
+  CreditType
 };

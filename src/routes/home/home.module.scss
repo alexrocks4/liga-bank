@@ -1,4 +1,22 @@
+@import "../../assets/sass/variables.scss";
+
 .home {
   margin: 0;
   padding: 0;
+}
+
+.home__services {
+  margin-bottom: 42px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 67px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 95px;
+  }
+}
+
+.home__calculator {
+  margin-bottom: 60px;
 }

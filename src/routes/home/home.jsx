@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './home.module.scss';
 import Promo from '../../components/promo/promo';
 import Services from '../../components/services/services';
+import Calculator from '../../components/calculator/calculator';
 
 function Home({ className }) {
   return (
@@ -11,6 +12,7 @@ function Home({ className }) {
       <h1 className="visually-hidden">Лига банк</h1>
       <Promo className={styles['home__promo']} />
       <Services className={styles['home__services']} />
+      <Calculator className={styles['home__calculator']}/>
     </main>
   );
 }
