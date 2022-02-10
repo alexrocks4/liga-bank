@@ -6,6 +6,8 @@ import styles from './calculator-step1.module.scss';
 import { Media } from '../../utils';
 import { Breakpoint, formTypes } from '../../const';
 import DropdownIndicator from '../dropdown-indicator/dropdown-indicator';
+import { useDispatch } from 'react-redux';
+import { creditTypeUpdated } from '../../store/calculatorSlice';
 
 const selectStyles = {
   control: (provided, state) => ({
@@ -72,6 +74,9 @@ const selectStyles = {
 };
 
 function CalculatorStep1({ className }) {
+  const dispatch = useDispatch();
+  const handleInputChange = ({ value }) => dispatch(creditTypeUpdated(value));
+
   return (
     <section className={classNames(className, styles['calculator-step1'])}>
       <h3 className={styles['calculator-step1__title']}>
@@ -83,6 +88,7 @@ function CalculatorStep1({ className }) {
         styles={selectStyles}
         components={{ DropdownIndicator }}
         isSearchable={false}
+        onChange={handleInputChange}
       />
     </section>
   );

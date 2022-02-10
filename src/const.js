@@ -40,11 +40,18 @@ const formTypes = [
   { value: CreditType.AUTO, label: 'Автомобильное кредитование' },
 ];
 
+const FormStep = {
+  FIRST: 1,
+  SECOND: 2,
+  THIRD: 3,
+};
+
 export {
   AppRoute,
   Breakpoint,
   ButtonRootElement,
   LocalStorageKey,
   formTypes,
-  CreditType
+  CreditType,
+  FormStep
 };
