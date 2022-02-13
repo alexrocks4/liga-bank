@@ -58,6 +58,7 @@ const FormConfig = {
     firstPayment: {
       label: 'Первоначальный взнос',
       minPricePercentage: 10,
+      maxPricePercentage: 100,
       stepPricePercentage: 5,
       defaultValue: 200000,
     },

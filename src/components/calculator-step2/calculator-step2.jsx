@@ -4,9 +4,8 @@ import classNames from 'classnames';
 import styles from './calculator-step2.module.scss';
 import CalculatorStepTitle from '../calculator-step-title/calculator-step-title';
 import Price from '../price/price';
-import FormFieldBase from '../form-field-base/form-field-base';
 import { formatPrice } from '../../utils';
-import Range from '../range/range';
+import FormFieldWithRange from '../form-field-with-range/form-field-with-range';
 
 function CalculatorStep2({ className, data }) {
   const { price, firstPayment } = data;
@@ -17,23 +16,21 @@ function CalculatorStep2({ className, data }) {
         Шаг 2. Введите параметры кредита
       </CalculatorStepTitle>
       <Price className={styles['calculator-step2__price']} data={price}/>
-      <FormFieldBase
+      <FormFieldWithRange
         className={styles['calculator-step2__first-payment']}
-        label={firstPayment.label}
-        id="firstPayment"
-        pattern="/\d.+/"
-        name="firstPayment"
-        value={`${formatPrice(firstPayment.defaultValue)} рублей`}
-        onChange={() => {}}
-      />
-      <Range
-        className={styles['calculator-step2__first-payment-range']}
-        description="Процент от стоимости"
-        min={firstPayment.minPricePercentage}
-        step={firstPayment.stepPricePercentage}
-        value={firstPayment.minPricePercentage}
-        formatValue={(value) => `${value}%`}
-        onChange={() => {}}
+        inputDefaultValue={firstPayment.defaultValue}
+        inputId="firstPayment"
+        inputLabel={firstPayment.label}
+        inputPattern="/\d.+/"
+        inputName="firstPayment"
+        rangeDescription="Процент от стоимости"
+        rangeMin={firstPayment.minPricePercentage}
+        rangeMax={firstPayment.maxPricePercentage}
+        rangeDefaultValue={firstPayment.minPricePercentage}
+        rangeStep={firstPayment.stepPricePercentage}
+        formatInputValue={(value) => `${formatPrice(value)} рублей`}
+        formatRangeValue={(value) => `${value}%`}
+        onInputChange={() => {}}
       />
     </section>
   );
@@ -52,6 +49,7 @@ CalculatorStep2.propTypes = {
     firstPayment: PropTypes.shape({
       label: PropTypes.string,
       minPricePercentage: PropTypes.number,
+      maxPricePercentage: PropTypes.number,
       stepPricePercentage: PropTypes.number,
       defaultValue: PropTypes.number,
     }).isRequired,
