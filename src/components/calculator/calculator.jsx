@@ -8,6 +8,7 @@ import CalculatorStep2 from '../calculator-step2/calculator-step2';
 import { useSelector } from 'react-redux';
 import { selectCalculatorCreditType, selectIsStep2Active } from '../../store/calculatorSlice';
 import { FormConfig } from '../../const';
+import Proposition from '../proposition/proposition';
 
 function Calculator({ className }) {
   const isStep2Active = useSelector(selectIsStep2Active);
@@ -26,6 +27,11 @@ function Calculator({ className }) {
           <CalculatorStep2
             className={styles['calculator__step2']}
             data={FormConfig[creditType]}
+          />}
+
+          {isStep2Active &&
+          <Proposition
+            className={styles['calculator__step2-proposition']}
           />}
 
         </form>

@@ -1,0 +1,64 @@
+@import "../../assets/sass/variables.scss";
+
+.proposition {
+  box-sizing: border-box;
+  padding: 35px 16px 40px 15px;
+  background-color: $color-light-4;
+  min-height: 433px;
+}
+
+.proposition__title {
+  margin: 0;
+  margin-bottom: 23px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.proposition__list {
+  margin: 0;
+  margin-bottom: 28px;
+  padding: 0;
+
+  @media (min-width: $medium-viewport-width) {
+    display: grid;
+    grid-template-columns: minmax(178px, 1fr) 2fr;
+    column-gap: 50px;
+    row-gap: 40px;
+  }
+}
+
+.proposition__list-item {
+  display: flex;
+  flex-direction: column-reverse;
+
+  &:not(:last-child) {
+    margin-bottom: 13px;
+  }
+
+  &:nth-last-child(2) {
+    margin-bottom: 16px;
+  }
+}
+
+.proposition__term {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-dark-2;
+}
+
+.proposition__definition {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.proposition__button {
+  display: block;
+  width: 100%;
+}
