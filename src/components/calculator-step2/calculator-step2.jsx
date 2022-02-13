@@ -6,6 +6,7 @@ import CalculatorStepTitle from '../calculator-step-title/calculator-step-title'
 import Price from '../price/price';
 import { formatDuration, formatPrice } from '../../utils';
 import FormFieldWithRange from '../form-field-with-range/form-field-with-range';
+import Checkbox from '../checkbox/checkbox';
 
 function CalculatorStep2({ className, data }) {
   const { price, firstPayment, duration } = data;
@@ -49,6 +50,12 @@ function CalculatorStep2({ className, data }) {
         formatInputValue={formatDuration}
         onInputChange={() => {}}
       />
+      <p className={styles['calculator-step2__capital']}>
+        <Checkbox
+          className={styles['calculator-step2__capital-checkbox']}
+          text="Использовать материнский капитал"
+        />
+      </p>
     </section>
   );
 }
