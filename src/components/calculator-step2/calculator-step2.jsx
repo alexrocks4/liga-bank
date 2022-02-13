@@ -4,11 +4,11 @@ import classNames from 'classnames';
 import styles from './calculator-step2.module.scss';
 import CalculatorStepTitle from '../calculator-step-title/calculator-step-title';
 import Price from '../price/price';
-import { formatPrice } from '../../utils';
+import { formatDuration, formatPrice } from '../../utils';
 import FormFieldWithRange from '../form-field-with-range/form-field-with-range';
 
 function CalculatorStep2({ className, data }) {
-  const { price, firstPayment } = data;
+  const { price, firstPayment, duration } = data;
 
   return (
     <section className={classNames(className, styles['calculator-step2'])}>
@@ -30,6 +30,23 @@ function CalculatorStep2({ className, data }) {
         rangeStep={firstPayment.stepPricePercentage}
         formatInputValue={(value) => `${formatPrice(value)} рублей`}
         formatRangeValue={(value) => `${value}%`}
+        onInputChange={() => {}}
+      />
+      <FormFieldWithRange
+        className={styles['calculator-step2__duration']}
+        inputDefaultValue={duration.defaultValue}
+        inputId="duration"
+        inputLabel={duration.label}
+        inputPattern="/\d.+/"
+        inputName="duration"
+        rangeDescription="Срок кредитования"
+        rangeMin={duration.min}
+        rangeMax={duration.max}
+        rangeDefaultValue={duration.defaultValue}
+        rangeStep={duration.step}
+        isRangeMinMaxShow
+        formatRangeMinMax={formatDuration}
+        formatInputValue={formatDuration}
         onInputChange={() => {}}
       />
     </section>
@@ -54,6 +71,7 @@ CalculatorStep2.propTypes = {
       defaultValue: PropTypes.number,
     }).isRequired,
     duration:  PropTypes.shape({
+      label: PropTypes.string,
       min: PropTypes.number,
       max: PropTypes.number,
       step: PropTypes.number,

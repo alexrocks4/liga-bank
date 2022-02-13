@@ -17,6 +17,8 @@ function FormFieldWithRange({
   rangeMax,
   rangeStep,
   rangeDefaultValue,
+  isRangeMinMaxShow,
+  formatRangeMinMax,
   formatInputValue,
   formatRangeValue,
   onInputChange,
@@ -39,6 +41,8 @@ function FormFieldWithRange({
         max={rangeMax}
         step={rangeStep}
         value={rangeDefaultValue}
+        isMinMaxShow={isRangeMinMaxShow}
+        formatMinMax={formatRangeMinMax}
         formatValue={formatRangeValue}
         onChange={() => {}}
       />
@@ -58,6 +62,8 @@ FormFieldWithRange.propTypes = {
   rangeMax: PropTypes.number.isRequired,
   rangeDefaultValue: PropTypes.number.isRequired,
   rangeStep: PropTypes.number.isRequired,
+  isRangeMinMaxShow: PropTypes.bool.isRequired,
+  formatRangeMinMax: PropTypes.func.isRequired,
   formatInputValue: PropTypes.func.isRequired,
   formatRangeValue: PropTypes.func.isRequired,
   onInputChange: PropTypes.func.isRequired,
@@ -65,6 +71,8 @@ FormFieldWithRange.propTypes = {
 
 FormFieldWithRange.defaultProps = {
   className: '',
+  isRangeMinMaxShow: false,
+  formatRangeMinMax: (value) => value,
 };
 
 export default FormFieldWithRange;

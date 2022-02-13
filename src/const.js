@@ -63,6 +63,7 @@ const FormConfig = {
       defaultValue: 200000,
     },
     duration: {
+      label: 'Срок кредитования',
       min: 5,
       max: 30,
       step: 1,
@@ -86,6 +87,7 @@ const FormConfig = {
       stepPricePercentage: 5,
     },
     duration: {
+      label: 'Срок кредитования',
       min: 1,
       max: 5,
       step: 1,
@@ -100,6 +102,10 @@ const FormConfig = {
 
 const DECIMAL_RADIX = 10;
 
+const Noun = {
+  YEARS: ['год', 'года', 'лет'],
+};
+
 export {
   AppRoute,
   Breakpoint,
@@ -109,5 +115,6 @@ export {
   CreditType,
   FormStep,
   FormConfig,
-  DECIMAL_RADIX
+  DECIMAL_RADIX,
+  Noun
 };
