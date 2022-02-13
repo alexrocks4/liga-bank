@@ -6,6 +6,7 @@ import CalculatorStepTitle from '../calculator-step-title/calculator-step-title'
 import Price from '../price/price';
 import FormFieldBase from '../form-field-base/form-field-base';
 import { formatPrice } from '../../utils';
+import Range from '../range/range';
 
 function CalculatorStep2({ className, data }) {
   const { price, firstPayment } = data;
@@ -23,6 +24,15 @@ function CalculatorStep2({ className, data }) {
         pattern="/\d.+/"
         name="firstPayment"
         value={`${formatPrice(firstPayment.defaultValue)} рублей`}
+        onChange={() => {}}
+      />
+      <Range
+        className={styles['calculator-step2__first-payment-range']}
+        description="Процент от стоимости"
+        min={firstPayment.minPricePercentage}
+        step={firstPayment.stepPricePercentage}
+        value={firstPayment.minPricePercentage}
+        formatValue={(value) => `${value}%`}
         onChange={() => {}}
       />
     </section>
