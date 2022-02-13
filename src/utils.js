@@ -28,13 +28,15 @@ function getNoun(number, nouns) {
   return nouns[2];
 }
 
-const formatPrice = (price) => {
-  if (!Number.isInteger(price)) {
+const formatNumeric = (numeric) => {
+  if (!Number.isInteger(numeric)) {
     return;
   }
 
-  return price.toString(DECIMAL_RADIX).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return numeric.toString(DECIMAL_RADIX).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 };
+
+const formatPrice = (price) => `${formatNumeric(price)} ${getNoun(price, Noun.RUB)}`;
 
 const formatDuration = (duration) => {
   if (!Number.isInteger(duration)) {
@@ -49,5 +51,6 @@ export {
   isEscKeyPressed,
   Media,
   formatPrice,
-  formatDuration
+  formatDuration,
+  formatNumeric
 };

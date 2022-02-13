@@ -104,6 +104,7 @@ const DECIMAL_RADIX = 10;
 
 const Noun = {
   YEARS: ['год', 'года', 'лет'],
+  RUB: ['рубль', 'рубля', 'рублей'],
 };
 
 export {

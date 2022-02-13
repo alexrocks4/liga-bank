@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './price.module.scss';
-import { formatPrice } from '../../utils';
+import { formatNumeric, formatPrice } from '../../utils';
 import Button from '../button/button';
 import FormFieldBase from '../form-field-base/form-field-base';
 
@@ -29,7 +29,7 @@ function Price({ className, data }) {
 
   const description = (
     <span className={styles['price__text']}>
-      От {formatPrice(min)} до {formatPrice(max)} рублей
+      От {formatNumeric(min)} до {formatPrice(max)}
     </span>
   );
 
@@ -40,7 +40,7 @@ function Price({ className, data }) {
       id="price"
       pattern="/\d.+/"
       name="price"
-      value={`${formatPrice(defaultValue)} рублей`}
+      value={formatPrice(defaultValue)}
       controls={controls}
       description={description}
       onChange={() => {}}

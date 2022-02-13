@@ -29,7 +29,7 @@ function CalculatorStep2({ className, data }) {
         rangeMax={firstPayment.maxPricePercentage}
         rangeDefaultValue={firstPayment.minPricePercentage}
         rangeStep={firstPayment.stepPricePercentage}
-        formatInputValue={(value) => `${formatPrice(value)} рублей`}
+        formatInputValue={formatPrice}
         formatRangeValue={(value) => `${value}%`}
         onInputChange={() => {}}
       />
