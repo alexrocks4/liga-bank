@@ -1,0 +1,19 @@
+@import "../../assets/sass/variables.scss";
+
+.calculator-step-title {
+  padding: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+
+  @media (min-width: $medium-viewport-width) {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    font-size: 22px;
+    line-height: 31px;
+  }
+}

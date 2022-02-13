@@ -46,6 +46,59 @@ const FormStep = {
   THIRD: 3,
 };
 
+const FormConfig = {
+  [CreditType.MORTGAGE]: {
+    price: {
+      label: 'Стоимость недвижимости',
+      min: 1200000,
+      max: 25000000,
+      step: 100000,
+      defaultValue: 2000000,
+    },
+    firstPayment: {
+      label: 'Первоначальный взнос',
+      minPricePercentage: 10,
+      stepPricePercentage: 5,
+      defaultValue: 200000,
+    },
+    duration: {
+      min: 5,
+      max: 30,
+      step: 1,
+      defaultValue: 5,
+    },
+    capital: {
+      sum: 470000,
+    },
+    min: 500000,
+  },
+  [CreditType.AUTO]: {
+    price: {
+      label: 'Стоимость автомобиля',
+      min: 500000,
+      max: 5000000,
+      step: 50000,
+      defaultValue: 2000000,
+    },
+    firstPayment: {
+      minPricePercentage: 20,
+      stepPricePercentage: 5,
+    },
+    duration: {
+      min: 1,
+      max: 5,
+      step: 1,
+      defaultValue: 5,
+    },
+    capital: {
+      sum: 470000,
+    },
+    min: 200000,
+  },
+};
+
+const DECIMAL_RADIX = 10;
+
 export {
   AppRoute,
   Breakpoint,
@@ -53,5 +106,7 @@ export {
   LocalStorageKey,
   formTypes,
   CreditType,
-  FormStep
+  FormStep,
+  FormConfig,
+  DECIMAL_RADIX
 };

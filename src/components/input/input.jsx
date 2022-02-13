@@ -1,0 +1,20 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import styles from './input.module.scss';
+
+function Input({ className, ...props }) {
+  return (
+    <input className={classNames(className, styles['input'])} {...props} />
+  );
+}
+
+Input.propTypes = {
+  className: PropTypes.string.isRequired,
+};
+
+Input.defaultProps = {
+  className: '',
+};
+
+export default Input;

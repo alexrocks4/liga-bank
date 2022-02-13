@@ -1,0 +1,28 @@
+@import "../../assets/sass/variables.scss";
+
+@import "../../assets/sass/variables.scss";
+
+.form-field-base {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.form-field-base__label {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-dark-2;
+}
+
+.form-field-base__input {
+  margin-bottom: 6px;
+}
+
+.form-field-base__input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+

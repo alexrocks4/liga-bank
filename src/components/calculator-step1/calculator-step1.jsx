@@ -8,6 +8,7 @@ import { Breakpoint, formTypes } from '../../const';
 import DropdownIndicator from '../dropdown-indicator/dropdown-indicator';
 import { useDispatch } from 'react-redux';
 import { creditTypeUpdated } from '../../store/calculatorSlice';
+import CalculatorStepTitle from '../calculator-step-title/calculator-step-title';
 
 const selectStyles = {
   control: (provided, state) => ({
@@ -52,6 +53,7 @@ const selectStyles = {
     borderTop: 'none',
     boxShadow: 'none',
     marginTop: '0',
+    position: 'static',
   }),
   menuList: (provided) => ({
     ...provided,
@@ -79,9 +81,7 @@ function CalculatorStep1({ className }) {
 
   return (
     <section className={classNames(className, styles['calculator-step1'])}>
-      <h3 className={styles['calculator-step1__title']}>
-        Шаг 1. Цель кредита
-      </h3>
+      <CalculatorStepTitle>Шаг 1. Цель кредита</CalculatorStepTitle>
       <Select
         options={formTypes}
         placeholder="Выберите цель кредита"

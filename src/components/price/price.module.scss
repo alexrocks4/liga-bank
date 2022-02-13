@@ -1,0 +1,60 @@
+@import "../../assets/sass/variables.scss";
+
+.price__text {
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-gray;
+}
+
+.price__increment-button,
+.price__decrement-button {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+}
+
+.price__increment-button {
+  top: 11px;
+  right: 5px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 2px;
+    background-color: $color-dark;
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 16px;
+    height: 2px;
+    background-color: $color-dark;
+    content: "";
+  }
+}
+
+.price__decrement-button {
+  top: 10px;
+  left: 14px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 2px;
+    background-color: $color-dark;
+    content: "";
+  }
+}
+

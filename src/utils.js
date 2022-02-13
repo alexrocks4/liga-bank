@@ -1,4 +1,4 @@
-import { Breakpoint } from './const';
+import { Breakpoint, DECIMAL_RADIX } from './const';
 
 const isEscKeyPressed = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
@@ -8,7 +8,17 @@ const Media = {
   [Breakpoint.LARGE]: `@media (min-width: ${Breakpoint.LARGE}px)`,
 };
 
+const formatPrice = (price) => {
+  if (!Number.isInteger(price)) {
+    return;
+  }
+
+  return price.toString(DECIMAL_RADIX).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+};
+
+
 export {
   isEscKeyPressed,
-  Media
+  Media,
+  formatPrice
 };

@@ -1,14 +1,8 @@
 @import "../../assets/sass/variables.scss";
 
-.calculator-step1 {
-  @media (min-width: $large-viewport-width) {
-    width: 51.2%;
-  }
-}
-
-.calculator-step1__title {
+.calculator-step2__title {
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 9px;
 
   @media (min-width: $medium-viewport-width) {
     margin-bottom: 19px;
@@ -17,4 +11,13 @@
   @media (min-width: $large-viewport-width) {
     margin-bottom: 23px;
   }
+}
+
+.calculator-step2__price {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.calculator-step2__first-payment {
+  margin: 0;
 }

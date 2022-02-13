@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { FormStep } from '../const';
 
 const initialState = {
@@ -17,7 +17,7 @@ const calculatorSlice = createSlice({
     creditTypeUpdated(state, { payload }) {
       if (state.creditType !== payload) {
         state.creditType = payload;
-        state.step = state.step === FormStep.FIRST ? FormStep.SECOND : FormStep.FIRST;
+        state.step = FormStep.SECOND;
       }
     },
   },
@@ -31,10 +31,22 @@ const {
 const selectCalculatorStep = (state) => state.calculator.step;
 const selectCalculatorCreditType = (state) => state.calculator.creditType;
 
+const selectIsStep2Active = createSelector(
+  selectCalculatorStep,
+  (currentStep) => currentStep > FormStep.FIRST,
+);
+
+const selectIsStep3Active = createSelector(
+  selectCalculatorStep,
+  (currentStep) => currentStep > FormStep.SECOND,
+);
+
 export {
   calculatorSlice,
   stepUpdated,
   creditTypeUpdated,
   selectCalculatorStep,
-  selectCalculatorCreditType
+  selectCalculatorCreditType,
+  selectIsStep2Active,
+  selectIsStep3Active
 };
