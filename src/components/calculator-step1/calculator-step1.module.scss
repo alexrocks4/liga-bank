@@ -1,11 +1,5 @@
 @import "../../assets/sass/variables.scss";
 
-.calculator-step1 {
-  @media (min-width: $large-viewport-width) {
-    width: 51.2%;
-  }
-}
-
 .calculator-step1__title {
   margin: 0;
   margin-bottom: 15px;

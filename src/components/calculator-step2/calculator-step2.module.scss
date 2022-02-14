@@ -5,25 +5,49 @@
   margin-bottom: 9px;
 
   @media (min-width: $medium-viewport-width) {
-    margin-bottom: 19px;
+    margin-bottom: 14px;
   }
 
   @media (min-width: $large-viewport-width) {
-    margin-bottom: 23px;
+    margin-bottom: 16px;
   }
 }
 
 .calculator-step2__price {
   margin: 0;
   margin-bottom: 10px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 13px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 18px;
+  }
 }
 
 .calculator-step2__first-payment {
   margin-bottom: 10px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 15px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 19px;
+  }
 }
 
 .calculator-step2__duration {
   margin-bottom: 9px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 15px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 19px;
+  }
 }
 
 .calculator-step2__capital {

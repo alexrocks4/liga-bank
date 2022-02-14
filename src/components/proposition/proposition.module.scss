@@ -5,6 +5,15 @@
   padding: 35px 16px 40px 15px;
   background-color: $color-light-4;
   min-height: 433px;
+
+  @media (min-width: $medium-viewport-width) {
+    min-height: 389px;
+    padding: 52px 60px 60px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    padding-left: 59px;
+  }
 }
 
 .proposition__title {
@@ -14,6 +23,11 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
+
+  @media (min-width: $medium-viewport-width) {
+    font-size: 22px;
+    line-height: 31px;
+  }
 }
 
 .proposition__list {
@@ -24,8 +38,10 @@
   @media (min-width: $medium-viewport-width) {
     display: grid;
     grid-template-columns: minmax(178px, 1fr) 2fr;
-    column-gap: 50px;
-    row-gap: 40px;
+    column-gap: 49px;
+    row-gap: 13px;
+    align-items: flex-start;
+    margin-bottom: 18px;
   }
 }
 
@@ -48,6 +64,11 @@
   font-size: 16px;
   line-height: 22px;
   color: $color-dark-2;
+
+  @media (min-width: $medium-viewport-width) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .proposition__definition {
@@ -56,6 +77,12 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 3px;
+    font-size: 22px;
+    line-height: 31px
+  }
 }
 
 .proposition__button {

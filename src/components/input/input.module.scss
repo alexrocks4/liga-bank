@@ -12,4 +12,10 @@
   color: $color-dark;
   text-align: center;
   appearance: none;
+
+  @media (min-width: $large-viewport-width) {
+    padding-bottom: 16px;
+    font-size: 18px;
+    line-height: 25px;
+  }
 }

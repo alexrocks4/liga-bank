@@ -4,6 +4,20 @@
   padding: 0;
 }
 
+.calculator__form {
+
+  @media (min-width: $large-viewport-width) {
+    display: grid;
+    grid-template-columns: minmax(300px, 51.2%) minmax(500px, 1fr);
+    grid-template-areas:
+      "step1 proposition"
+      "step2 proposition"
+      "step3 step3";
+    column-gap: 70px;
+    align-items: start;
+  }
+}
+
 .calculator__title {
   margin: 0;
   margin-bottom: 22px;
@@ -29,8 +43,32 @@
 
 .calculator__step1 {
   margin-bottom: 26px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 33px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    grid-area: step1;
+  }
 }
 
 .calculator__step2 {
   margin-bottom: 30px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 39px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    grid-area: step2;
+  }
+}
+
+.calculator__step2-proposition {
+  @media (min-width: $large-viewport-width) {
+    position: relative;
+    top: 8px;
+    grid-area: proposition;
+  }
 }

@@ -27,6 +27,8 @@ const selectStyles = {
     ...provided,
     padding: '18px 12px 18px',
     [Media[Breakpoint.MEDIUM]]: {
+      paddingTop: '21px',
+      paddingBottom: '19px',
       paddingLeft: '21px',
     },
   }),
@@ -36,7 +38,7 @@ const selectStyles = {
   }),
   indicatorsContainer: (provided) => ({
     ...provided,
-    paddingRight: '13px',
+    paddingRight: '5px',
     [Media[Breakpoint.MEDIUM]]: {
       paddingRight: '14px',
     },
@@ -81,7 +83,9 @@ function CalculatorStep1({ className }) {
 
   return (
     <section className={classNames(className, styles['calculator-step1'])}>
-      <CalculatorStepTitle>Шаг 1. Цель кредита</CalculatorStepTitle>
+      <CalculatorStepTitle className={styles['calculator-step1__title']}>
+        Шаг 1. Цель кредита
+      </CalculatorStepTitle>
       <Select
         options={formTypes}
         placeholder="Выберите цель кредита"

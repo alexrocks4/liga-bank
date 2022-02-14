@@ -29,7 +29,7 @@ function Proposition({ className }) {
       </dl>
       <ButtonPrimary
         className={styles['proposition__button']}
-        isBig
+        isMedium
         isWide
       >
         Оформить заявку

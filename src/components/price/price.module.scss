@@ -40,6 +40,11 @@
     background-color: $color-dark;
     content: "";
   }
+
+  @media (min-width: $large-viewport-width) {
+    top: 12px;
+    right: 13px;
+  }
 }
 
 .price__decrement-button {

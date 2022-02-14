@@ -10,6 +10,11 @@
   font-size: 14px;
   line-height: 20px;
 
+  @media (min-width: $medium-viewport-width) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
   &::before {
     box-sizing: border-box;
     position: absolute;
