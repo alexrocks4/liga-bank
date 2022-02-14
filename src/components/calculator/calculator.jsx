@@ -6,14 +6,16 @@ import CalculatorStep1 from '../calculator-step1/calculator-step1';
 import WrapperFluid from '../wrapper-fluid/wrapper-fluid';
 import CalculatorStep2 from '../calculator-step2/calculator-step2';
 import { useSelector } from 'react-redux';
-import { selectCalculatorCreditType, selectIsStep2Active } from '../../store/calculatorSlice';
+import { selectCalculatorCreditType, selectIsStep2Active, selectIsStep3Active } from '../../store/calculatorSlice';
 import { FormConfig } from '../../const';
 import Proposition from '../proposition/proposition';
 import CalculatorAlert from '../calculator-alert/calculator-alert';
+import CalculatorStep3 from '../calculator-step3/calculator-step3';
 
 function Calculator({ className }) {
   const isStep2Active = useSelector(selectIsStep2Active);
-  const isAlertVisible = true;
+  const isStep3Active = useSelector(selectIsStep3Active);
+  const isAlertVisible = false;
   const creditType = useSelector(selectCalculatorCreditType);
 
   return (
@@ -39,6 +41,11 @@ function Calculator({ className }) {
           {isStep2Active && !isAlertVisible &&
           <Proposition
             className={styles['calculator__step2-proposition']}
+          />}
+
+          {isStep3Active &&
+          <CalculatorStep3
+            className={styles['calculator__step3']}
           />}
 
         </form>

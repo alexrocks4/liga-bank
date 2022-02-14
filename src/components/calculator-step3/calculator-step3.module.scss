@@ -1,0 +1,172 @@
+@import "../../assets/sass/variables.scss";
+
+.calculator-step3 {
+  @media (min-width: $large-viewport-width) {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 770px;
+    min-height: 722px;
+    background-color: $color-light-4;
+    padding: 64px 70px;
+  }
+}
+
+.calculator-step3__title {
+  margin: 0;
+  margin-bottom: 18px;
+  text-align: center;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 26px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 13px;
+  }
+}
+
+.calculator-step3__order {
+  margin: 0;
+  margin-bottom: 29px;
+  padding: 0;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 31px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 30px;
+  }
+}
+
+.calculator-step3__order-item {
+  display: flex;
+  flex-direction: column-reverse;
+  border-bottom: 1px solid $color-gray-2;
+  padding: 15px 0 14px;
+
+  &:nth-last-child(2) {
+    padding-bottom: 12px;
+  }
+
+  @media (min-width: $medium-viewport-width) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 11px;
+    padding-bottom: 12px;
+
+    &:nth-last-child(2) {
+      padding-bottom: 11px;
+    }
+  }
+}
+
+.calculator-step3__term {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-dark-2;
+
+  @media (min-width: $medium-viewport-width) {
+    padding-top: 5px;
+    width: 40%;
+  }
+}
+
+.calculator-step3__definition {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+
+  @media (min-width: $medium-viewport-width) {
+    width: 40%;
+    text-align: right;
+    font-size: 22px;
+    line-height: 31px
+  }
+}
+
+.calculator-step3__contacts {
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+
+  @media (min-width: $medium-viewport-width) {
+    display: grid;
+    grid-template-columns: minmax(324px, 1fr) minmax(324px, 1fr);
+    grid-template-areas:
+      "fio fio"
+      "phone email";
+    column-gap: 30px;
+    row-gap: 30px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  }
+}
+
+.calculator-step3__label {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: $medium-viewport-width) {
+    &:nth-of-type(1) {
+      grid-area: fio;
+    }
+
+    &:nth-of-type(2) {
+      grid-area: phone;
+    }
+
+    &:nth-of-type(3) {
+      grid-area: email;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.calculator-step3__input {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid $color-dark;
+  border-radius: 4px;
+  padding: 18px 14px;
+  font-size: 16px;
+  line-height: 22px;
+
+  &::placeholder {
+    color: $color-gray;
+  }
+
+  @media (min-width: $medium-viewport-width) {
+    padding-bottom: 15px;
+    padding-left: 23px;
+    padding-right: 23px;
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+.calculator-step3__button {
+  width: 100%;
+
+  @media (min-width: $large-viewport-width) {
+    margin: 0 auto;
+    width: 198px;
+  }
+}

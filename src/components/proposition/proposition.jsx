@@ -4,8 +4,18 @@ import classNames from 'classnames';
 import styles from './proposition.module.scss';
 import ButtonPrimary from '../button-primary/button-primary';
 import { formatPrice } from '../../utils';
+import { useDispatch } from 'react-redux';
+import { stepUpdated } from '../../store/calculatorSlice';
+import { FormStep } from '../../const';
 
 function Proposition({ className }) {
+  const dispatch = useDispatch();
+
+  const handleButtonClick = (evt) => {
+    evt.preventDefault();
+    dispatch(stepUpdated(FormStep.THIRD));
+  };
+
   return (
     <section className={classNames(className, styles['proposition'])}>
       <h3 className={styles['proposition__title']}>Наше предложение</h3>
@@ -31,6 +41,7 @@ function Proposition({ className }) {
         className={styles['proposition__button']}
         isMedium
         isWide
+        onClick={handleButtonClick}
       >
         Оформить заявку
       </ButtonPrimary>

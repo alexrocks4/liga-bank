@@ -62,14 +62,25 @@
 
   @media (min-width: $large-viewport-width) {
     grid-area: step2;
+    margin-bottom: 65px;
   }
 }
 
 .calculator__step2-alert,
 .calculator__step2-proposition {
+  margin-bottom: 43px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 55px;
+  }
+
   @media (min-width: $large-viewport-width) {
     position: relative;
     top: 8px;
     grid-area: proposition;
   }
+}
+
+.calculator__step3 {
+  grid-area: step3;
 }
