@@ -9,9 +9,11 @@ import { useSelector } from 'react-redux';
 import { selectCalculatorCreditType, selectIsStep2Active } from '../../store/calculatorSlice';
 import { FormConfig } from '../../const';
 import Proposition from '../proposition/proposition';
+import CalculatorAlert from '../calculator-alert/calculator-alert';
 
 function Calculator({ className }) {
   const isStep2Active = useSelector(selectIsStep2Active);
+  const isAlertVisible = true;
   const creditType = useSelector(selectCalculatorCreditType);
 
   return (
@@ -29,7 +31,12 @@ function Calculator({ className }) {
             data={FormConfig[creditType]}
           />}
 
-          {isStep2Active &&
+          {isStep2Active && isAlertVisible &&
+          <CalculatorAlert
+            className={styles['calculator__step2-alert']}
+          />}
+
+          {isStep2Active && !isAlertVisible &&
           <Proposition
             className={styles['calculator__step2-proposition']}
           />}

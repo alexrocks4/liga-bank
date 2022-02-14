@@ -1,0 +1,47 @@
+@import "../../assets/sass/variables.scss";
+
+.calculator-alert {
+  box-sizing: border-box;
+  padding: 34px 14px;
+  background: $color-light-4;
+  border-radius: 4px;
+  min-height: 201px;
+
+  @media (min-width: $medium-viewport-width) {
+    min-height: 225px;
+    padding: 50px 59px
+  }
+
+  @media (min-width: $large-viewport-width) {
+    padding-left: 57px;
+  }
+}
+
+.calculator-alert__title {
+  margin: 0;
+  margin-bottom: 13px;
+  max-width: 285px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+
+  @media (min-width: $medium-viewport-width) {
+    max-width: 350px;
+    font-size: 22px;
+    line-height: 31px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    max-width: 350px;
+  }
+}
+
+.calculator-alert__text {
+  margin: 0;
+  padding: 0;
+  max-width: 285px;
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-dark-2;
+}
