@@ -5,6 +5,7 @@ import styles from './home.module.scss';
 import Promo from '../../components/promo/promo';
 import Services from '../../components/services/services';
 import Calculator from '../../components/calculator/calculator';
+import Map from '../../components/map/map';
 
 function Home({ className }) {
   return (
@@ -12,7 +13,8 @@ function Home({ className }) {
       <h1 className="visually-hidden">Лига банк</h1>
       <Promo className={styles['home__promo']} />
       <Services className={styles['home__services']} />
-      <Calculator className={styles['home__calculator']}/>
+      <Calculator className={styles['home__calculator']} />
+      <Map className={styles['home__map']}/>
     </main>
   );
 }

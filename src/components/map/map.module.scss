@@ -1,0 +1,47 @@
+@import "../../assets/sass/variables.scss";
+
+.map__title-wrapper{
+  margin-bottom: 28px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 35px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 57px;
+  }
+}
+
+.map__title {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 31px;
+
+  @media (min-width: $medium-viewport-width) {
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    font-size: 41px;
+    line-height: 57px;
+  }
+}
+
+.map__map-figure {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.map__map-img {
+  width: 100%;
+  height: 381;
+  object-fit: contain;
+
+  @media (min-width: $medium-viewport-width) {
+    height: 462px;
+  }
+}

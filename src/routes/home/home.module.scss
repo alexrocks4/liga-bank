@@ -18,5 +18,17 @@
 }
 
 .home__calculator {
+  margin-bottom: 52px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 67px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 62px;
+  }
+}
+
+.home__map {
   margin-bottom: 60px;
 }

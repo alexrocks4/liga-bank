@@ -1,4 +1,5 @@
 @import "../../assets/sass/variables.scss";
+@import "../../assets/sass/mixins.scss";
 
 .wrapper-fluid {
   margin-left: auto;
@@ -14,4 +15,10 @@
     width: (($large-viewport-width - $large-viewport-padding * 2) / $large-viewport-width * 100%);
     max-width: $extra-large-viewport-width - $large-viewport-padding * 2;
   }
+}
+
+.wrapper-fluid--greater-small-viewport {
+  @include clear-wrapper-fluid;
+  @include wrapper-fluid-medium-viewport;
+  @include wrapper-fluid-large-viewport;
 }

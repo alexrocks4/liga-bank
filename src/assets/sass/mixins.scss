@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 @mixin font-primary {
   font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
@@ -6,4 +8,28 @@
 @mixin font-secondary {
   font-family: "Work Sans", "Arial", sans-serif;
   font-style: normal;
+}
+
+@mixin clear-wrapper-fluid {
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+  min-width: auto;
+}
+
+@mixin wrapper-fluid-medium-viewport {
+  @media (min-width: $medium-viewport-width) {
+    margin-left: auto;
+    margin-right: auto;
+    width: (($medium-viewport-width - $medium-viewport-padding * 2) / $medium-viewport-width * 100%);
+  }
+}
+
+@mixin wrapper-fluid-large-viewport {
+  @media (min-width: $large-viewport-width) {
+    margin-left: auto;
+    margin-right: auto;
+    width: (($large-viewport-width - $large-viewport-padding * 2) / $large-viewport-width * 100%);
+    max-width: $extra-large-viewport-width - $large-viewport-padding * 2;
+  }
 }

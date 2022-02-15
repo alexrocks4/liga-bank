@@ -27,8 +27,6 @@ const selectStyles = {
     ...provided,
     padding: '18px 12px 18px',
     [Media[Breakpoint.MEDIUM]]: {
-      paddingTop: '21px',
-      paddingBottom: '19px',
       paddingLeft: '21px',
     },
   }),
