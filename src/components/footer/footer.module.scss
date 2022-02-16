@@ -1,0 +1,319 @@
+@import "../../assets/sass/variables.scss";
+
+.footer {
+  box-sizing: border-box;
+  min-height: 412px;
+  background-color: $color-light-4;
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  @media (min-width: $medium-viewport-width) {
+    min-height: 350px;
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    min-height: 224px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+.footer__container {
+  @media (min-width: $medium-viewport-width) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    justify-content: space-between;
+  }
+}
+
+.footer__nav-container {
+  margin-bottom: 17px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 20px;
+    margin-right: 48px;
+    width: 45%;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    display: grid;
+    grid-template-columns: 260px minmax(144px, 1fr);
+    grid-template-rows: minmax(29px, min-content);
+    grid-template-areas:
+      "logo nav"
+      "copyright nav";
+    align-items: start;
+    margin-right: 30px;
+    width: 40.2%;
+  }
+}
+
+.footer__logo {
+  display: inline-block;
+  margin-bottom: 16px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 23px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    grid-area: logo;
+    justify-self: start;
+    margin-bottom: 12px;
+  }
+}
+
+.footer__nav-list {
+  margin: 0;
+  padding: 0;
+  padding-left: 1px;
+  list-style: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    grid-area: nav;
+    justify-self: end;
+    padding-top: 4px;
+    padding-left: 20px;
+  }
+}
+
+.footer__nav-item {
+  &:not(:last-child) {
+    margin-bottom: 9.1px;
+  }
+}
+
+.footer__nav-link {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.footer__copyright {
+  display: none;
+
+  @media (min-width: $medium-viewport-width) {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 17px;
+    color: $color-gray;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    grid-area: copyright;
+    justify-self: start;
+  }
+}
+
+.footer__address,
+.footer__copyright-text {
+  font: inherit;
+}
+
+.footer__socials-container {
+  padding-top: 3px;
+
+  @media (min-width: $large-viewport-width) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 7px;
+    width: 52.5%;
+  }
+}
+
+.footer__phones-list-container {
+  margin-bottom: 19px;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 27px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    width: 70.8%;
+    overflow: hidden;
+  }
+}
+
+.footer__phones-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+
+  @media (min-width: $large-viewport-width) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: -15px;
+  }
+}
+
+.footer__phones-list-item {
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  @media (min-width: $medium-viewport-width) {
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 25px;
+    margin-right: 15px;
+  }
+}
+
+.footer__phone-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  color: inherit;
+  text-decoration: none;
+
+  &::before {
+    position: absolute;
+    content: "";
+  }
+}
+
+.footer__phone-link--free-mobile {
+  &::before {
+    top: 3px;
+    left: 1px;
+    width: 10px;
+    height: 16px;
+    background-image: url('./phone.svg');
+  }
+}
+
+.footer__phone-link--free-all {
+  padding-left: 34px;
+
+  &::before {
+    top: 3px;
+    left: 1px;
+    width: 16px;
+    height: 16.5px;
+    background-image: url('./handset.svg');
+  }
+
+  @media (min-width: $medium-viewport-width) {
+    &::before {
+      top: 3px;
+      left: 1px;
+      width: 16px;
+      height: 17px;
+    }
+  }
+}
+
+.footer__phone-link--free-all .footer__phone-description {
+  width: 124px;
+}
+
+.footer__phone-description {
+  width: 172px;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+  color: $color-gray;
+}
+
+.footer__socials-list-container {
+  overflow: hidden;
+
+  @media (min-width: $large-viewport-width) {
+    padding-top: 3px;
+    width: 103px;
+  }
+}
+
+.footer__socials-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0;
+  margin-right: -20px;
+  padding: 0;
+  padding-left: 1px;
+  list-style: none;
+
+  @media (min-width: $large-viewport-width) {
+    margin-right: -15px;
+  }
+}
+
+.footer__socials-list-item {
+  margin-right: 20px;
+
+  @media (min-width: $large-viewport-width) {
+    margin-right: 15px;
+  }
+}
+
+.footer__socials-link {
+  display: block;
+}
+
+.footer__socials-link--facebook {
+  width: 9px;
+  height: 16px;
+  background-image: url('./facebook.svg');
+}
+
+.footer__socials-link--instagram {
+  width: 16px;
+  height: 16px;
+  background-image: url('./instagram.svg');
+}
+
+.footer__socials-link--twitter {
+  box-sizing: border-box;
+  width: 16px;
+  height: 17px;
+  background-image: url('./twitter.svg');
+  background-repeat: no-repeat;
+  background-size: 16px 14px;
+  background-position: 0 1px;
+}
+
+.footer__socials-link--youtube {
+  box-sizing: border-box;
+  width: 16px;
+  height: 17px;
+  background-image: url('./youtube.svg');
+  background-repeat: no-repeat;
+  background-size: 16px 13px;
+  background-position: 0 2px;
+}

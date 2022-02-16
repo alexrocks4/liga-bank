@@ -1,3 +1,7 @@
+const HomeId = {
+  CALCULATOR: 'calculator',
+};
+
 const AppRoute = {
   ROOT: '/',
   DEPOSITS: 'deposits',
@@ -10,7 +14,7 @@ const AppRoute = {
   QUESTION: '/question',
   LOGIN: '/login',
   PASSWORD: 'password',
-  CALCULATOR: '/#calculator',
+  CALCULATOR: `/#${HomeId.CALCULATOR}`,
 };
 
 const Breakpoint = {
@@ -117,5 +121,6 @@ export {
   FormStep,
   FormConfig,
   DECIMAL_RADIX,
-  Noun
+  Noun,
+  HomeId
 };

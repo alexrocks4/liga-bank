@@ -2,7 +2,16 @@
 
 .home {
   margin: 0;
+  margin-bottom: 56px;
   padding: 0;
+
+  @media (min-width: $medium-viewport-width) {
+    margin-bottom: 76px;
+  }
+
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 107px;
+  }
 }
 
 .home__services {
@@ -27,8 +36,4 @@
   @media (min-width: $large-viewport-width) {
     margin-bottom: 62px;
   }
-}
-
-.home__map {
-  margin-bottom: 60px;
 }

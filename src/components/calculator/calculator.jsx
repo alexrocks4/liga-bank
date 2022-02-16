@@ -7,7 +7,7 @@ import WrapperFluid from '../wrapper-fluid/wrapper-fluid';
 import CalculatorStep2 from '../calculator-step2/calculator-step2';
 import { useSelector } from 'react-redux';
 import { selectCalculatorCreditType, selectIsStep2Active, selectIsStep3Active } from '../../store/calculatorSlice';
-import { FormConfig } from '../../const';
+import { FormConfig, HomeId } from '../../const';
 import Proposition from '../proposition/proposition';
 import CalculatorAlert from '../calculator-alert/calculator-alert';
 import CalculatorStep3 from '../calculator-step3/calculator-step3';
@@ -19,7 +19,7 @@ function Calculator({ className }) {
   const creditType = useSelector(selectCalculatorCreditType);
 
   return (
-    <section className={classNames(className, styles['calculator'])}>
+    <section className={classNames(className, styles['calculator'])} id={HomeId.CALCULATOR}>
       <WrapperFluid>
         <h2 className={styles['calculator__title']}>Кредитный калькулятор</h2>
         <form className={styles['calculator__form']}>
