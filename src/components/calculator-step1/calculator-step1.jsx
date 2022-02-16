@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import Select from 'react-select';
 import styles from './calculator-step1.module.scss';
 import { Media } from '../../utils';
-import { Breakpoint, formTypes } from '../../const';
+import { Breakpoint, CreditTypeOption, formTypes } from '../../const';
 import DropdownIndicator from '../dropdown-indicator/dropdown-indicator';
-import { useDispatch } from 'react-redux';
-import { creditTypeUpdated } from '../../store/calculatorSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { creditTypeUpdated, selectCalculatorCreditType } from '../../store/calculatorSlice';
 import CalculatorStepTitle from '../calculator-step-title/calculator-step-title';
 
 const selectStyles = {
@@ -77,6 +77,7 @@ const selectStyles = {
 
 function CalculatorStep1({ className }) {
   const dispatch = useDispatch();
+  const currentCreditType = useSelector(selectCalculatorCreditType);
   const handleInputChange = ({ value }) => dispatch(creditTypeUpdated(value));
 
   return (
@@ -91,6 +92,7 @@ function CalculatorStep1({ className }) {
         components={{ DropdownIndicator }}
         isSearchable={false}
         onChange={handleInputChange}
+        value={CreditTypeOption[currentCreditType] ? CreditTypeOption[currentCreditType] : ''}
       />
     </section>
   );

@@ -5,10 +5,23 @@ import { formatDuration, formatPrice } from '../../utils';
 import styles from './calculator-step3.module.scss';
 import CalculatorStepTitle from '../calculator-step-title/calculator-step-title';
 import ButtonPrimary from '../button-primary/button-primary';
+import useModal from '../../hooks/use-modal';
+import ModalSuccess from '../modal-success/modal-success';
+import { useDispatch } from 'react-redux';
+import { calculatorResetted } from '../../store/calculatorSlice';
 
 function CalculatorStep3({ className }) {
+  const [isModalOpened, handleModalClose, handleModalOpen] = useModal();
+  const dispatch = useDispatch();
+
   const handleButtonClick = (evt) => {
     evt.preventDefault();
+    handleModalOpen(evt);
+  };
+
+  const handleModalSuccessClose = (evt) => {
+    handleModalClose(evt);
+    dispatch(calculatorResetted());
   };
 
   return (
@@ -92,6 +105,7 @@ function CalculatorStep3({ className }) {
           Отправить
         </ButtonPrimary>
       </div>
+      {isModalOpened && <ModalSuccess onClose={handleModalSuccessClose} />}
     </section>
   );
 }

@@ -20,12 +20,17 @@ const calculatorSlice = createSlice({
         state.step = FormStep.SECOND;
       }
     },
+
+    calculatorResetted() {
+      return initialState;
+    },
   },
 });
 
 const {
   stepUpdated,
   creditTypeUpdated,
+  calculatorResetted,
 } = calculatorSlice.actions;
 
 const selectCalculatorStep = (state) => state.calculator.step;
@@ -45,6 +50,7 @@ export {
   calculatorSlice,
   stepUpdated,
   creditTypeUpdated,
+  calculatorResetted,
   selectCalculatorStep,
   selectCalculatorCreditType,
   selectIsStep2Active,

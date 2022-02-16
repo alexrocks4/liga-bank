@@ -39,9 +39,20 @@ const CreditType = {
   AUTO: 'auto',
 };
 
+const CreditTypeOption = {
+  [CreditType.MORTGAGE]: {
+    value: CreditType.MORTGAGE,
+    label: 'Ипотечное кредитование',
+  },
+  [CreditType.AUTO]: {
+    value: CreditType.AUTO,
+    label: 'Автомобильное кредитование',
+  },
+};
+
 const formTypes = [
-  { value: CreditType.MORTGAGE, label: 'Ипотечное кредитование' },
-  { value: CreditType.AUTO, label: 'Автомобильное кредитование' },
+  CreditTypeOption[CreditType.MORTGAGE],
+  CreditTypeOption[CreditType.AUTO],
 ];
 
 const FormStep = {
@@ -122,5 +133,6 @@ export {
   FormConfig,
   DECIMAL_RADIX,
   Noun,
-  HomeId
+  HomeId,
+  CreditTypeOption
 };
