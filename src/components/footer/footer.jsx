@@ -50,14 +50,14 @@ function Footer({ className }) {
               </li>
             </ul>
 
-            <p className={styles['footer__copyright']}>
+            <div className={styles['footer__copyright']}>
               <address className={styles['footer__address']}>
                 150015, г. Москва, ул. Московская, д. 32
               </address>
               <small className={styles['footer__copyright-text']}>
                 Генеральная лицензия Банка России №1050<br />Ⓒ Лига Банк, 2019
               </small>
-            </p>
+            </div>
           </div>
 
           <div className={styles['footer__socials-container']}>
