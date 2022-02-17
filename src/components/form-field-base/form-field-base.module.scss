@@ -24,4 +24,13 @@
   flex-direction: column;
 }
 
+.form-field-base__input-alert {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  font-size: 12px;
+  line-height: 20px;
+  color: $color-alert;
+}
+
 

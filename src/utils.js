@@ -1,4 +1,4 @@
-import { Breakpoint, DECIMAL_RADIX, Noun } from './const';
+import { Breakpoint, DECIMAL_RADIX, KeyName, Noun } from './const';
 
 const isEscKeyPressed = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
@@ -46,11 +46,26 @@ const formatDuration = (duration) => {
   return `${duration} ${getNoun(duration, Noun.YEARS)}`;
 };
 
+const parseNumeric = (value) => parseInt(value.split(' ').join(''), DECIMAL_RADIX);
+
+const isAllowedKey = (key) => (
+  /^\d$/.test(key)
+  || key === KeyName.TAB
+  || key === KeyName.ENTER
+  || key === KeyName.BACKSPACE
+  || key === KeyName.DELETE
+  || key === KeyName.ARROWLEFT
+  || key === KeyName.ARROWRIGHT
+  || key === KeyName.PLUS
+  || key === KeyName.MINUS
+);
 
 export {
   isEscKeyPressed,
   Media,
   formatPrice,
   formatDuration,
-  formatNumeric
+  formatNumeric,
+  parseNumeric,
+  isAllowedKey
 };

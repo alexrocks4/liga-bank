@@ -7,19 +7,30 @@ import Price from '../price/price';
 import { formatDuration, formatPrice } from '../../utils';
 import FormFieldWithRange from '../form-field-with-range/form-field-with-range';
 import Checkbox from '../checkbox/checkbox';
+import { useSelector } from 'react-redux';
+import { selectCalculatorCreditType, selectCalculatorFormState } from '../../store/calculatorSlice';
+import { FormConfig } from '../../const';
 
-function CalculatorStep2({ className, data }) {
-  const { price, firstPayment, duration } = data;
+function CalculatorStep2({ className, onChange }) {
+  const creditType = useSelector(selectCalculatorCreditType);
+  const formState = useSelector(selectCalculatorFormState);
+
+  const { price, firstPayment, duration } = FormConfig[creditType];
 
   return (
     <section className={classNames(className, styles['calculator-step2'])}>
       <CalculatorStepTitle className={styles['calculator-step2__title']}>
         Шаг 2. Введите параметры кредита
       </CalculatorStepTitle>
-      <Price className={styles['calculator-step2__price']} data={price}/>
+      <Price
+        className={styles['calculator-step2__price']}
+        data={price}
+        value={formState.price}
+        onChange={onChange}
+      />
       <FormFieldWithRange
         className={styles['calculator-step2__first-payment']}
-        inputDefaultValue={firstPayment.defaultValue}
+        inputDefaultValue={formState.firstPayment}
         inputId="firstPayment"
         inputLabel={firstPayment.label}
         inputPattern="/\d.+/"
@@ -31,11 +42,11 @@ function CalculatorStep2({ className, data }) {
         rangeStep={firstPayment.stepPricePercentage}
         formatInputValue={formatPrice}
         formatRangeValue={(value) => `${value}%`}
-        onInputChange={() => {}}
+        onInputChange={onChange}
       />
       <FormFieldWithRange
         className={styles['calculator-step2__duration']}
-        inputDefaultValue={duration.defaultValue}
+        inputDefaultValue={formState.duration}
         inputId="duration"
         inputLabel={duration.label}
         inputPattern="/\d.+/"
@@ -43,12 +54,12 @@ function CalculatorStep2({ className, data }) {
         rangeDescription="Срок кредитования"
         rangeMin={duration.min}
         rangeMax={duration.max}
-        rangeDefaultValue={duration.defaultValue}
+        rangeDefaultValue={formState.duration}
         rangeStep={duration.step}
         isRangeMinMaxShow
         formatRangeMinMax={formatDuration}
         formatInputValue={formatDuration}
-        onInputChange={() => {}}
+        onInputChange={onChange}
       />
       <p className={styles['calculator-step2__capital']}>
         <Checkbox
@@ -62,33 +73,7 @@ function CalculatorStep2({ className, data }) {
 
 CalculatorStep2.propTypes = {
   className: PropTypes.string.isRequired,
-  data: PropTypes.shape({
-    price: PropTypes.shape({
-      label: PropTypes.string,
-      min: PropTypes.number,
-      max: PropTypes.number,
-      step: PropTypes.number,
-      defaultValue: PropTypes.number,
-    }).isRequired,
-    firstPayment: PropTypes.shape({
-      label: PropTypes.string,
-      minPricePercentage: PropTypes.number,
-      maxPricePercentage: PropTypes.number,
-      stepPricePercentage: PropTypes.number,
-      defaultValue: PropTypes.number,
-    }).isRequired,
-    duration:  PropTypes.shape({
-      label: PropTypes.string,
-      min: PropTypes.number,
-      max: PropTypes.number,
-      step: PropTypes.number,
-      defaultValue: PropTypes.number,
-    }).isRequired,
-    capital: PropTypes.shape({
-      sum: PropTypes.number,
-    }).isRequired,
-    min: PropTypes.number.isRequired,
-  }).isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 CalculatorStep2.defaultProps = {

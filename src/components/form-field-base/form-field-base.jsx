@@ -6,7 +6,6 @@ import Input from '../input/input';
 
 function FormFieldBase({
   className,
-  onChange,
   value,
   name,
   pattern,
@@ -14,6 +13,11 @@ function FormFieldBase({
   label,
   description,
   controls,
+  onChange,
+  onFocus,
+  onBlur,
+  onKeyDown,
+  isError,
 }) {
   return (
     <p className={classNames(className, styles['form-field-base'])}>
@@ -32,8 +36,19 @@ function FormFieldBase({
           name={name}
           value={value}
           onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onKeyDown={onKeyDown}
+          isError={isError}
         />
+
         {controls}
+
+        {isError && (
+          <span className={classNames(styles['form-field-base__input-alert'])}>
+            Некорректное значение
+          </span>
+        )}
       </span>
       {description}
     </p>
@@ -42,7 +57,6 @@ function FormFieldBase({
 
 FormFieldBase.propTypes = {
   className: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
   value: PropTypes.string,
   name: PropTypes.string,
   pattern: PropTypes.string,
@@ -50,6 +64,11 @@ FormFieldBase.propTypes = {
   label: PropTypes.string,
   description: PropTypes.node,
   controls: PropTypes.node,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  isError: PropTypes.bool.isRequired,
 };
 
 FormFieldBase.defaultProps = {

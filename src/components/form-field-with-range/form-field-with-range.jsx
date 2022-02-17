@@ -65,7 +65,7 @@ FormFieldWithRange.propTypes = {
   isRangeMinMaxShow: PropTypes.bool.isRequired,
   formatRangeMinMax: PropTypes.func.isRequired,
   formatInputValue: PropTypes.func.isRequired,
-  formatRangeValue: PropTypes.func.isRequired,
+  formatRangeValue: PropTypes.func,
   onInputChange: PropTypes.func.isRequired,
 };
 

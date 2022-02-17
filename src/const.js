@@ -86,6 +86,7 @@ const FormConfig = {
     },
     capital: {
       sum: 470000,
+      defaultValue: false,
     },
     min: 500000,
   },
@@ -98,8 +99,10 @@ const FormConfig = {
       defaultValue: 2000000,
     },
     firstPayment: {
+      label: 'Первоначальный взнос',
       minPricePercentage: 20,
       stepPricePercentage: 5,
+      defaultValue: 200000,
     },
     duration: {
       label: 'Срок кредитования',
@@ -108,8 +111,11 @@ const FormConfig = {
       step: 1,
       defaultValue: 5,
     },
-    capital: {
-      sum: 470000,
+    casco: {
+      defaultValue: false,
+    },
+    lifeInsyrance: {
+      defaultValue: false,
     },
     min: 200000,
   },
@@ -120,6 +126,17 @@ const DECIMAL_RADIX = 10;
 const Noun = {
   YEARS: ['год', 'года', 'лет'],
   RUB: ['рубль', 'рубля', 'рублей'],
+};
+
+const KeyName = {
+  PLUS: '+',
+  MINUS: '-',
+  TAB: 'Tab',
+  ENTER: 'Enter',
+  BACKSPACE: 'Backspace',
+  DELETE: 'Delete',
+  ARROWLEFT: 'ArrowLeft',
+  ARROWRIGHT: 'ArrowRight',
 };
 
 export {
@@ -134,5 +151,6 @@ export {
   DECIMAL_RADIX,
   Noun,
   HomeId,
-  CreditTypeOption
+  CreditTypeOption,
+  KeyName
 };

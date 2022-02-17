@@ -6,8 +6,8 @@ import CalculatorStep1 from '../calculator-step1/calculator-step1';
 import WrapperFluid from '../wrapper-fluid/wrapper-fluid';
 import CalculatorStep2 from '../calculator-step2/calculator-step2';
 import { useSelector } from 'react-redux';
-import { selectCalculatorCreditType, selectIsStep2Active, selectIsStep3Active } from '../../store/calculatorSlice';
-import { FormConfig, HomeId } from '../../const';
+import { selectIsStep2Active, selectIsStep3Active } from '../../store/calculatorSlice';
+import { HomeId } from '../../const';
 import Proposition from '../proposition/proposition';
 import CalculatorAlert from '../calculator-alert/calculator-alert';
 import CalculatorStep3 from '../calculator-step3/calculator-step3';
@@ -16,7 +16,10 @@ function Calculator({ className }) {
   const isStep2Active = useSelector(selectIsStep2Active);
   const isStep3Active = useSelector(selectIsStep3Active);
   const isAlertVisible = false;
-  const creditType = useSelector(selectCalculatorCreditType);
+
+  const handleInputChange = (evt) => {
+    evt.preventDefault();
+  };
 
   return (
     <section className={classNames(className, styles['calculator'])} id={HomeId.CALCULATOR}>
@@ -30,7 +33,7 @@ function Calculator({ className }) {
           {isStep2Active &&
           <CalculatorStep2
             className={styles['calculator__step2']}
-            data={FormConfig[creditType]}
+            onChange={handleInputChange}
           />}
 
           {isStep2Active && isAlertVisible &&

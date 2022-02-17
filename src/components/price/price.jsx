@@ -2,27 +2,77 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './price.module.scss';
-import { formatNumeric, formatPrice } from '../../utils';
+import { formatNumeric, formatPrice, isAllowedKey, parseNumeric } from '../../utils';
 import Button from '../button/button';
 import FormFieldBase from '../form-field-base/form-field-base';
+import { useDispatch } from 'react-redux';
+import { formStateUpdated } from '../../store/calculatorSlice';
+import { useState } from 'react';
+import { KeyName } from '../../const';
 
-function Price({ className, data }) {
+function Price({ className, data, value, onChange }) {
   const {
     label,
     min,
     max,
-    defaultValue,
+    step,
   } = data;
+
+  const dispatch = useDispatch();
+  const [ isInputFocused, setIsInputFocused ] = useState(false);
+  const isInputValueIncorrect = value < min || value > max;
+
+  const handleInputChange = (evt) => {
+    dispatch(formStateUpdated({ [evt.target.name]: parseNumeric(evt.target.value) }));
+    onChange(evt);
+  };
+
+  const handleInputFocus = () => {
+    setIsInputFocused(true);
+  };
+
+  const handleInputBlur = () => {
+    setIsInputFocused(false);
+  };
+
+  const handleIncrementClick = () => {
+    const newPrice = value + step;
+    dispatch(formStateUpdated({ price: newPrice > max ? max : newPrice }));
+  };
+
+  const handleDecrementClick = () => {
+    const newPrice = value - step;
+    dispatch(formStateUpdated({ price: newPrice < min ? min : newPrice }));
+  };
+
+  const handleKeyDown = (evt) => {
+    if (!isAllowedKey(evt.key)) {
+      evt.preventDefault();
+      return;
+    }
+
+    if (evt.key === KeyName.PLUS) {
+      handleIncrementClick();
+      evt.preventDefault();
+    }
+
+    if (evt.key === KeyName.MINUS) {
+      handleDecrementClick();
+      evt.preventDefault();
+    }
+  };
 
   const controls = (
     <>
       <Button
         className={styles['price__increment-button']}
         aria-label="Увеличить стоимость"
+        onClick={handleIncrementClick}
       />
       <Button
         className={styles['price__decrement-button']}
         aria-label="Уменьшить стоимость"
+        onClick={handleDecrementClick}
       />
     </>
   );
@@ -40,10 +90,14 @@ function Price({ className, data }) {
       id="price"
       pattern="/\d.+/"
       name="price"
-      value={formatPrice(defaultValue)}
+      value={isInputFocused ? formatNumeric(value) : formatPrice(value)}
       controls={controls}
       description={description}
-      onChange={() => {}}
+      isError={isInputValueIncorrect}
+      onChange={handleInputChange}
+      onFocus={handleInputFocus}
+      onBlur={handleInputBlur}
+      onKeyDown={handleKeyDown}
     />
   );
 }
@@ -57,6 +111,8 @@ Price.propTypes = {
     step: PropTypes.number,
     defaultValue: PropTypes.number,
   }).isRequired,
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 Price.defaultProps = {
