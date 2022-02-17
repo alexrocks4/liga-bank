@@ -85,8 +85,9 @@ const FormConfig = {
       defaultValue: 5,
     },
     capital: {
+      label: 'Использовать материнский капитал',
       sum: 470000,
-      defaultValue: false,
+      defaultValue: true,
     },
     min: 500000,
   },
@@ -101,6 +102,7 @@ const FormConfig = {
     firstPayment: {
       label: 'Первоначальный взнос',
       minPricePercentage: 20,
+      maxPricePercentage: 100,
       stepPricePercentage: 5,
       defaultValue: 200000,
     },
@@ -112,9 +114,11 @@ const FormConfig = {
       defaultValue: 5,
     },
     casco: {
+      label: 'Оформить КАСКО в нашем банке',
       defaultValue: false,
     },
-    lifeInsyrance: {
+    lifeInsurance: {
+      label: 'Оформить Страхование жизни в нашем банке',
       defaultValue: false,
     },
     min: 200000,

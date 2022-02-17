@@ -15,27 +15,6 @@
     line-height: 22px;
   }
 
-  &::before {
-    box-sizing: border-box;
-    position: absolute;
-    top: 2px;
-    left: 0;
-    border: 1px solid $color-accent;
-    width: 16px;
-    height: 16px;
-    content: "";
-  }
-
-  &:not(:checked) {
-    &::before {
-      background-color: $color-accent;
-      background-image: url("./mark.svg");
-      background-size: 8px 6px;
-      background-repeat: no-repeat;
-      background-position: 3px 4px;
-    }
-  }
-
   &:hover {
     cursor: pointer;
     opacity: 0.7;
@@ -45,4 +24,22 @@
     opacity: 0.5;
   }
 
+}
+
+.checkbox__mark {
+  box-sizing: border-box;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  border: 1px solid $color-accent;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox__input:checked ~ .checkbox__mark {
+  background-color: $color-accent;
+  background-image: url("./mark.svg");
+  background-size: 8px 6px;
+  background-repeat: no-repeat;
+  background-position: 3px 4px;
 }

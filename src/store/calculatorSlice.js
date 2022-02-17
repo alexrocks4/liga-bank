@@ -15,7 +15,7 @@ const initialFormState = {
     firstPaymentPercent: FormConfig[CreditType.AUTO].firstPayment.minPricePercentage,
     duration: FormConfig[CreditType.AUTO].duration.defaultValue,
     casco: FormConfig[CreditType.AUTO].casco.defaultValue,
-    lifeInsyrance: FormConfig[CreditType.AUTO].lifeInsyrance.defaultValue,
+    lifeInsurance: FormConfig[CreditType.AUTO].lifeInsurance.defaultValue,
   },
 };
 
@@ -82,6 +82,18 @@ const calculatorSlice = createSlice({
         ? max
         : Math.max(min, payload);
     },
+
+    capitalUpdated(state, { payload }) {
+      state.formState.capital = payload;
+    },
+
+    cascoUpdated(state, { payload }) {
+      state.formState.casco = payload;
+    },
+
+    lifeInsuranceUpdated(state, { payload }) {
+      state.formState.lifeInsurance = payload;
+    },
   },
 });
 
@@ -94,6 +106,9 @@ const {
   firstPaymentUpdated,
   firstPaymentPercentUpdated,
   durationUpdated,
+  capitalUpdated,
+  cascoUpdated,
+  lifeInsuranceUpdated,
 } = calculatorSlice.actions;
 
 const selectCalculatorStep = (state) => state.calculator.step;
@@ -101,7 +116,9 @@ const selectCalculatorCreditType = (state) => state.calculator.creditType;
 const selectCalculatorFormState = (state) => state.calculator.formState;
 const selectFirstPaymentPercent = (state) => state.calculator.formState.firstPaymentPercent;
 const selectDuration = (state) => state.calculator.formState.duration;
-
+const selectCapital = (state) => state.calculator.formState.capital;
+const selectCasco = (state) => state.calculator.formState.casco;
+const selectLifeInsurance = (state) => state.calculator.formState.lifeInsurance;
 const selectIsStep2Active = createSelector(
   selectCalculatorStep,
   (currentStep) => currentStep > FormStep.FIRST,
@@ -122,11 +139,17 @@ export {
   firstPaymentUpdated,
   firstPaymentPercentUpdated,
   durationUpdated,
+  capitalUpdated,
+  cascoUpdated,
+  lifeInsuranceUpdated,
   selectCalculatorStep,
   selectCalculatorCreditType,
   selectCalculatorFormState,
   selectFirstPaymentPercent,
   selectDuration,
+  selectCapital,
+  selectCasco,
+  selectLifeInsurance,
   selectIsStep2Active,
   selectIsStep3Active
 };

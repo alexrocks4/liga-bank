@@ -50,9 +50,13 @@
   }
 }
 
-.calculator-step2__capital {
+.calculator-step2__checkbox-container {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
   margin: 0;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
