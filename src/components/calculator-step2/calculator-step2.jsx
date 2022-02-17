@@ -4,19 +4,18 @@ import classNames from 'classnames';
 import styles from './calculator-step2.module.scss';
 import CalculatorStepTitle from '../calculator-step-title/calculator-step-title';
 import Price from '../price/price';
-import { formatDuration } from '../../utils';
-import FormFieldWithRange from '../form-field-with-range/form-field-with-range';
 import Checkbox from '../checkbox/checkbox';
 import { useSelector } from 'react-redux';
 import { selectCalculatorCreditType, selectCalculatorFormState } from '../../store/calculatorSlice';
 import { FormConfig } from '../../const';
 import FirstPayment from '../first-payment/first-payment';
+import Duration from '../duration/duration';
 
 function CalculatorStep2({ className, onChange }) {
   const creditType = useSelector(selectCalculatorCreditType);
   const formState = useSelector(selectCalculatorFormState);
 
-  const { price, duration } = FormConfig[creditType];
+  const { price } = FormConfig[creditType];
 
   return (
     <section className={classNames(className, styles['calculator-step2'])}>
@@ -30,23 +29,7 @@ function CalculatorStep2({ className, onChange }) {
         onChange={onChange}
       />
       <FirstPayment className={styles['calculator-step2__first-payment']}/>
-      <FormFieldWithRange
-        className={styles['calculator-step2__duration']}
-        inputValue={formState.duration}
-        inputId="duration"
-        inputLabel={duration.label}
-        inputPattern="/\d.+/"
-        inputName="duration"
-        rangeDescription="Срок кредитования"
-        rangeMin={duration.min}
-        rangeMax={duration.max}
-        rangeDefaultValue={formState.duration}
-        rangeStep={duration.step}
-        isRangeMinMaxShow
-        formatRangeMinMax={formatDuration}
-        formatInputValue={formatDuration}
-        onInputChange={onChange}
-      />
+      <Duration className={styles['calculator-step2__duration']}/>
       <p className={styles['calculator-step2__capital']}>
         <Checkbox
           className={styles['calculator-step2__capital-checkbox']}

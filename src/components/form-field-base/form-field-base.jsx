@@ -68,11 +68,12 @@ FormFieldBase.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onKeyDown: PropTypes.func,
-  isError: PropTypes.bool.isRequired,
+  isError: PropTypes.bool,
 };
 
 FormFieldBase.defaultProps = {
   className: '',
+  isError: false,
 };
 
 export default FormFieldBase;

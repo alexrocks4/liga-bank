@@ -73,6 +73,15 @@ const calculatorSlice = createSlice({
         formState.price * payload / 100,
       );
     },
+
+    durationUpdated({ creditType, formState }, { payload }) {
+      const max = FormConfig[creditType].duration.max;
+      const min = FormConfig[creditType].duration.min;
+
+      formState.duration = payload > max
+        ? max
+        : Math.max(min, payload);
+    },
   },
 });
 
@@ -84,12 +93,14 @@ const {
   priceUpdated,
   firstPaymentUpdated,
   firstPaymentPercentUpdated,
+  durationUpdated,
 } = calculatorSlice.actions;
 
 const selectCalculatorStep = (state) => state.calculator.step;
 const selectCalculatorCreditType = (state) => state.calculator.creditType;
 const selectCalculatorFormState = (state) => state.calculator.formState;
 const selectFirstPaymentPercent = (state) => state.calculator.formState.firstPaymentPercent;
+const selectDuration = (state) => state.calculator.formState.duration;
 
 const selectIsStep2Active = createSelector(
   selectCalculatorStep,
@@ -110,10 +121,12 @@ export {
   priceUpdated,
   firstPaymentUpdated,
   firstPaymentPercentUpdated,
+  durationUpdated,
   selectCalculatorStep,
   selectCalculatorCreditType,
   selectCalculatorFormState,
   selectFirstPaymentPercent,
+  selectDuration,
   selectIsStep2Active,
   selectIsStep3Active
 };
