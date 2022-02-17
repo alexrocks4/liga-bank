@@ -6,7 +6,7 @@ import { formatNumeric, formatPrice, isAllowedKey, parseNumeric } from '../../ut
 import Button from '../button/button';
 import FormFieldBase from '../form-field-base/form-field-base';
 import { useDispatch } from 'react-redux';
-import { formStateUpdated } from '../../store/calculatorSlice';
+import { priceUpdated } from '../../store/calculatorSlice';
 import { useState } from 'react';
 import { KeyName } from '../../const';
 
@@ -23,7 +23,7 @@ function Price({ className, data, value, onChange }) {
   const isInputValueIncorrect = value < min || value > max;
 
   const handleInputChange = (evt) => {
-    dispatch(formStateUpdated({ [evt.target.name]: parseNumeric(evt.target.value) }));
+    dispatch(priceUpdated(parseNumeric(evt.target.value)));
     onChange(evt);
   };
 
@@ -37,12 +37,12 @@ function Price({ className, data, value, onChange }) {
 
   const handleIncrementClick = () => {
     const newPrice = value + step;
-    dispatch(formStateUpdated({ price: newPrice > max ? max : newPrice }));
+    dispatch(priceUpdated(newPrice > max ? max : newPrice));
   };
 
   const handleDecrementClick = () => {
     const newPrice = value - step;
-    dispatch(formStateUpdated({ price: newPrice < min ? min : newPrice }));
+    dispatch(priceUpdated(newPrice < min ? min : newPrice));
   };
 
   const handleKeyDown = (evt) => {

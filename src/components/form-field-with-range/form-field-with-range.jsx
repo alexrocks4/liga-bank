@@ -7,7 +7,7 @@ import Range from '../range/range';
 
 function FormFieldWithRange({
   className,
-  inputDefaultValue,
+  inputValue,
   inputId,
   inputLabel,
   inputPattern,
@@ -16,12 +16,16 @@ function FormFieldWithRange({
   rangeMin,
   rangeMax,
   rangeStep,
-  rangeDefaultValue,
+  rangeValue,
   isRangeMinMaxShow,
   formatRangeMinMax,
   formatInputValue,
   formatRangeValue,
   onInputChange,
+  onInputFocus,
+  onInputBlur,
+  onInputKeyDown,
+  onRangeChange,
 }) {
   return (
     <div className={classNames(className, styles['form-field-with-range'])}>
@@ -31,8 +35,11 @@ function FormFieldWithRange({
         id={inputId}
         pattern={inputPattern}
         name={inputName}
-        value={formatInputValue(inputDefaultValue)}
+        value={formatInputValue(inputValue)}
         onChange={onInputChange}
+        onFocus={onInputFocus}
+        onBlur={onInputBlur}
+        onKeyDown={onInputKeyDown}
       />
       <Range
         className={styles['form-field-with-range__range']}
@@ -40,11 +47,11 @@ function FormFieldWithRange({
         min={rangeMin}
         max={rangeMax}
         step={rangeStep}
-        value={rangeDefaultValue}
+        value={rangeValue}
         isMinMaxShow={isRangeMinMaxShow}
         formatMinMax={formatRangeMinMax}
         formatValue={formatRangeValue}
-        onChange={() => {}}
+        onChange={onRangeChange}
       />
     </div>
   );
@@ -52,7 +59,7 @@ function FormFieldWithRange({
 
 FormFieldWithRange.propTypes = {
   className: PropTypes.string.isRequired,
-  inputDefaultValue: PropTypes.number.isRequired,
+  inputValue: PropTypes.number.isRequired,
   inputId: PropTypes.string.isRequired,
   inputLabel: PropTypes.string.isRequired,
   inputPattern: PropTypes.string.isRequired,
@@ -60,13 +67,17 @@ FormFieldWithRange.propTypes = {
   rangeDescription: PropTypes.string.isRequired,
   rangeMin: PropTypes.number.isRequired,
   rangeMax: PropTypes.number.isRequired,
-  rangeDefaultValue: PropTypes.number.isRequired,
+  rangeValue: PropTypes.number.isRequired,
   rangeStep: PropTypes.number.isRequired,
   isRangeMinMaxShow: PropTypes.bool.isRequired,
   formatRangeMinMax: PropTypes.func.isRequired,
   formatInputValue: PropTypes.func.isRequired,
   formatRangeValue: PropTypes.func,
   onInputChange: PropTypes.func.isRequired,
+  onInputFocus: PropTypes.func.isRequired,
+  onInputBlur: PropTypes.func.isRequired,
+  onInputKeyDown: PropTypes.func.isRequired,
+  onRangeChange: PropTypes.func.isRequired,
 };
 
 FormFieldWithRange.defaultProps = {

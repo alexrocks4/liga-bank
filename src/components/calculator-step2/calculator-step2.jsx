@@ -4,18 +4,19 @@ import classNames from 'classnames';
 import styles from './calculator-step2.module.scss';
 import CalculatorStepTitle from '../calculator-step-title/calculator-step-title';
 import Price from '../price/price';
-import { formatDuration, formatPrice } from '../../utils';
+import { formatDuration } from '../../utils';
 import FormFieldWithRange from '../form-field-with-range/form-field-with-range';
 import Checkbox from '../checkbox/checkbox';
 import { useSelector } from 'react-redux';
 import { selectCalculatorCreditType, selectCalculatorFormState } from '../../store/calculatorSlice';
 import { FormConfig } from '../../const';
+import FirstPayment from '../first-payment/first-payment';
 
 function CalculatorStep2({ className, onChange }) {
   const creditType = useSelector(selectCalculatorCreditType);
   const formState = useSelector(selectCalculatorFormState);
 
-  const { price, firstPayment, duration } = FormConfig[creditType];
+  const { price, duration } = FormConfig[creditType];
 
   return (
     <section className={classNames(className, styles['calculator-step2'])}>
@@ -28,25 +29,10 @@ function CalculatorStep2({ className, onChange }) {
         value={formState.price}
         onChange={onChange}
       />
-      <FormFieldWithRange
-        className={styles['calculator-step2__first-payment']}
-        inputDefaultValue={formState.firstPayment}
-        inputId="firstPayment"
-        inputLabel={firstPayment.label}
-        inputPattern="/\d.+/"
-        inputName="firstPayment"
-        rangeDescription="Процент от стоимости"
-        rangeMin={firstPayment.minPricePercentage}
-        rangeMax={firstPayment.maxPricePercentage}
-        rangeDefaultValue={firstPayment.minPricePercentage}
-        rangeStep={firstPayment.stepPricePercentage}
-        formatInputValue={formatPrice}
-        formatRangeValue={(value) => `${value}%`}
-        onInputChange={onChange}
-      />
+      <FirstPayment className={styles['calculator-step2__first-payment']}/>
       <FormFieldWithRange
         className={styles['calculator-step2__duration']}
-        inputDefaultValue={formState.duration}
+        inputValue={formState.duration}
         inputId="duration"
         inputLabel={duration.label}
         inputPattern="/\d.+/"

@@ -13,6 +13,7 @@ function Range({
   isMinMaxShow,
   formatValue,
   formatMinMax,
+  onChange,
 }) {
   return (
     <p className={classNames(className, styles['range'])}>
@@ -25,6 +26,7 @@ function Range({
           max={max}
           step={step}
           value={value}
+          onChange={onChange}
         />
         <span className={styles['range__text']}>
           <span>{isMinMaxShow ? formatMinMax(min) : formatValue(value)}</span>
@@ -45,6 +47,7 @@ Range.propTypes = {
   isMinMaxShow: PropTypes.bool,
   formatValue: PropTypes.func,
   formatMinMax: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 Range.defaultProps = {

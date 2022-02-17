@@ -46,7 +46,11 @@ const formatDuration = (duration) => {
   return `${duration} ${getNoun(duration, Noun.YEARS)}`;
 };
 
-const parseNumeric = (value) => parseInt(value.split(' ').join(''), DECIMAL_RADIX);
+const parseNumeric = (value) => {
+  const parsedNumber = parseInt(value.split(' ').join(''), DECIMAL_RADIX);
+
+  return Number.isNaN(parsedNumber) ? 0 : parsedNumber;
+};
 
 const isAllowedKey = (key) => (
   /^\d$/.test(key)
