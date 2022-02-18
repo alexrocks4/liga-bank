@@ -88,7 +88,6 @@ function Price({ className, data, value, onChange }) {
       className={classNames(className, styles['price'])}
       label={label}
       id="price"
-      pattern="/\d.+/"
       name="price"
       value={isInputFocused ? formatNumeric(value) : formatPrice(value)}
       controls={controls}

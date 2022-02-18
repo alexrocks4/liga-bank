@@ -10,7 +10,6 @@ function FormFieldWithRange({
   inputValue,
   inputId,
   inputLabel,
-  inputPattern,
   inputName,
   rangeDescription,
   rangeMin,
@@ -33,7 +32,6 @@ function FormFieldWithRange({
         className={styles['form-field-with-range__field-base']}
         label={inputLabel}
         id={inputId}
-        pattern={inputPattern}
         name={inputName}
         value={formatInputValue(inputValue)}
         onChange={onInputChange}
@@ -62,7 +60,6 @@ FormFieldWithRange.propTypes = {
   inputValue: PropTypes.number.isRequired,
   inputId: PropTypes.string.isRequired,
   inputLabel: PropTypes.string.isRequired,
-  inputPattern: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
   rangeDescription: PropTypes.string.isRequired,
   rangeMin: PropTypes.number.isRequired,

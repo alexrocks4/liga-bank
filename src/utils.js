@@ -1,4 +1,4 @@
-import { Breakpoint, DECIMAL_RADIX, KeyName, Noun } from './const';
+import { Breakpoint, DECIMAL_RADIX, KeyName, Noun, REQUEST_NUMBER_MIN_LENGTH } from './const';
 
 const isEscKeyPressed = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
@@ -64,6 +64,8 @@ const isAllowedKey = (key) => (
   || key === KeyName.MINUS
 );
 
+const formatRequestNumber = (number) => number.toString().padStart(REQUEST_NUMBER_MIN_LENGTH, 0);
+
 export {
   isEscKeyPressed,
   Media,
@@ -71,5 +73,6 @@ export {
   formatDuration,
   formatNumeric,
   parseNumeric,
-  isAllowedKey
+  isAllowedKey,
+  formatRequestNumber
 };

@@ -40,7 +40,6 @@ function Duration({ className }) {
       inputValue={durationState}
       inputId="duration"
       inputLabel={duration.label}
-      inputPattern="/\d.+/"
       inputName="duration"
       rangeDescription="Срок кредитования"
       rangeMin={duration.min}

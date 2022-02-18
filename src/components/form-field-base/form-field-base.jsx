@@ -8,7 +8,6 @@ function FormFieldBase({
   className,
   value,
   name,
-  pattern,
   id,
   label,
   description,
@@ -32,7 +31,6 @@ function FormFieldBase({
           className={styles['form-field-base__input']}
           id={id}
           type="text"
-          pattern={pattern}
           name={name}
           value={value}
           onChange={onChange}
@@ -59,7 +57,6 @@ FormFieldBase.propTypes = {
   className: PropTypes.string.isRequired,
   value: PropTypes.string,
   name: PropTypes.string,
-  pattern: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   description: PropTypes.node,

@@ -45,7 +45,6 @@ function FirstPayment({ className }) {
       inputValue={firstPaymentState}
       inputId="firstPayment"
       inputLabel={firstPayment.label}
-      inputPattern="/\d.+/"
       inputName="firstPayment"
       rangeDescription="Процент от стоимости"
       rangeMin={firstPayment.minPricePercentage}

@@ -32,6 +32,7 @@ const ButtonRootElement = {
 
 const LocalStorageKey = {
   LIGA_BANK_AUTH: 'liga-bank-auth',
+  LIGA_BANK_USER_INFO: 'liga-bank-user-info',
 };
 
 const CreditType = {
@@ -144,6 +145,8 @@ const KeyName = {
 };
 
 const MONTHS_IN_A_YEAR = 12;
+const REQUEST_NUMBER_MIN_LENGTH = 4;
+
 export {
   AppRoute,
   Breakpoint,
@@ -158,5 +161,6 @@ export {
   HomeId,
   CreditTypeOption,
   KeyName,
-  MONTHS_IN_A_YEAR
+  MONTHS_IN_A_YEAR,
+  REQUEST_NUMBER_MIN_LENGTH
 };

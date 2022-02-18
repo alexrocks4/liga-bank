@@ -1,21 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { formatDuration, formatPrice } from '../../utils';
+import { formatDuration, formatPrice, formatRequestNumber } from '../../utils';
 import styles from './calculator-step3.module.scss';
 import CalculatorStepTitle from '../calculator-step-title/calculator-step-title';
 import ButtonPrimary from '../button-primary/button-primary';
 import useModal from '../../hooks/use-modal';
 import ModalSuccess from '../modal-success/modal-success';
-import { useDispatch } from 'react-redux';
-import { calculatorResetted } from '../../store/calculatorSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { calculatorResetted, requestNumberUpdated, selectCalculatorCreditType, selectDuration, selectFirstPayment, selectPrice, selectRequestNumber } from '../../store/calculatorSlice';
+import { CreditType, LocalStorageKey } from '../../const';
+import { useEffect } from 'react';
+import { loadFromLocalStorage, saveToLocalStorage } from '../../local-storage';
+
+const textContent = {
+  [CreditType.MORTGAGE]: {
+    creditType: 'Ипотека',
+    price: 'Стоимость недвижимости',
+  },
+  [CreditType.AUTO]: {
+    creditType: 'Автокредит',
+    price: 'Стоимость автомобиля',
+  },
+};
+
+const initialFormData = {
+  fio: '',
+  phone: '',
+  email: '',
+};
 
 function CalculatorStep3({ className }) {
   const [isModalOpened, handleModalClose, handleModalOpen] = useModal();
   const dispatch = useDispatch();
+  const requestNumber = useSelector(selectRequestNumber) + 1;
+  const creditType = useSelector(selectCalculatorCreditType);
+  const price = useSelector(selectPrice);
+  const firstPayment = useSelector(selectFirstPayment);
+  const duration = useSelector(selectDuration);
+  const [formData, setFormData] = useState(initialFormData);
+
+  const [ isFormCorrect, setIsFormCorrect ] = useState(true);
+
+  useEffect(() => {
+    const localStorageAuthData = loadFromLocalStorage(LocalStorageKey.LIGA_BANK_USER_INFO);
+
+    if (localStorageAuthData) {
+      setFormData(localStorageAuthData);
+    }
+  }, []);
 
   const handleButtonClick = (evt) => {
-    evt.preventDefault();
+    if (!(formData.fio && formData.phone && formData.email)) {
+      setIsFormCorrect(false);
+      return;
+    }
+
+    saveToLocalStorage(LocalStorageKey.LIGA_BANK_USER_INFO, formData);
+    dispatch(requestNumberUpdated(requestNumber));
     handleModalOpen(evt);
   };
 
@@ -24,8 +66,19 @@ function CalculatorStep3({ className }) {
     dispatch(calculatorResetted());
   };
 
+  const handleInputChange = (evt) => {
+    setFormData((state) => ({
+      ...state,
+      [evt.target.name]: evt.target.value,
+    }));
+  };
+
   return (
-    <section className={classNames(className, styles['calculator-step3'])}>
+    <section className={classNames(
+      className,
+      styles['calculator-step3'],
+      { [styles['calculator-step3--swing']]: !isFormCorrect })}
+    >
       <CalculatorStepTitle className={styles['calculator-step3__title']}>
         Шаг 3. Оформление заявки
       </CalculatorStepTitle>
@@ -33,23 +86,23 @@ function CalculatorStep3({ className }) {
       <dl className={styles['calculator-step3__order']}>
         <div className={styles['calculator-step3__order-item']}>
           <dt className={styles['calculator-step3__term']}>Номер заявки</dt>
-          <dd className={styles['calculator-step3__definition']}>№ 0010</dd>
+          <dd className={styles['calculator-step3__definition']}>№ {formatRequestNumber(requestNumber)}</dd>
         </div>
         <div className={styles['calculator-step3__order-item']}>
           <dt className={styles['calculator-step3__term']}>Цель кредита</dt>
-          <dd className={styles['calculator-step3__definition']}>Ипотека</dd>
+          <dd className={styles['calculator-step3__definition']}>{textContent[creditType].creditType}</dd>
         </div>
         <div className={styles['calculator-step3__order-item']}>
-          <dt className={styles['calculator-step3__term']}>Стоимость недвижимости</dt>
-          <dd className={styles['calculator-step3__definition']}>{formatPrice(2000000)}</dd>
+          <dt className={styles['calculator-step3__term']}>{textContent[creditType].price}</dt>
+          <dd className={styles['calculator-step3__definition']}>{formatPrice(price)}</dd>
         </div>
         <div className={styles['calculator-step3__order-item']}>
           <dt className={styles['calculator-step3__term']}>Первоначальный взнос</dt>
-          <dd className={styles['calculator-step3__definition']}>{formatPrice(200000)}</dd>
+          <dd className={styles['calculator-step3__definition']}>{formatPrice(firstPayment)}</dd>
         </div>
         <div className={styles['calculator-step3__order-item']}>
           <dt className={styles['calculator-step3__term']}>Срок кредитования</dt>
-          <dd className={styles['calculator-step3__definition']}>{formatDuration(5)}</dd>
+          <dd className={styles['calculator-step3__definition']}>{formatDuration(duration)}</dd>
         </div>
       </dl>
 
@@ -62,8 +115,12 @@ function CalculatorStep3({ className }) {
           <input
             type="text"
             className={styles['calculator-step3__input']}
+            value={formData.fio}
             name="fio"
             placeholder="ФИО"
+            autoFocus
+            onChange={handleInputChange}
+            required
           />
         </label>
 
@@ -75,8 +132,11 @@ function CalculatorStep3({ className }) {
           <input
             type="text"
             className={styles['calculator-step3__input']}
+            value={formData.phone}
             name="phone"
             placeholder="Телефон"
+            onChange={handleInputChange}
+            required
           />
         </label>
 
@@ -86,10 +146,13 @@ function CalculatorStep3({ className }) {
           aria-label="E-mail"
         >
           <input
-            type="text"
+            type="email"
             className={styles['calculator-step3__input']}
+            value={formData.email}
             name="email"
             placeholder="E-mail"
+            onChange={handleInputChange}
+            required
           />
         </label>
       </p>

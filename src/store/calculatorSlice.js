@@ -23,6 +23,7 @@ const initialState = {
   step: FormStep.FIRST,
   creditType: '',
   formState: {},
+  requestNumber: 0,
 };
 
 const calculatorSlice = createSlice({
@@ -42,8 +43,11 @@ const calculatorSlice = createSlice({
       }
     },
 
-    calculatorResetted() {
-      return initialState;
+    calculatorResetted(state) {
+      return {
+        ...initialState,
+        requestNumber: state.requestNumber,
+      };
     },
 
     formStateUpdated(state, { payload }) {
@@ -94,6 +98,10 @@ const calculatorSlice = createSlice({
     lifeInsuranceUpdated(state, { payload }) {
       state.formState.lifeInsurance = payload;
     },
+
+    requestNumberUpdated(state, { payload }) {
+      state.requestNumber = payload;
+    },
   },
 });
 
@@ -109,6 +117,7 @@ const {
   capitalUpdated,
   cascoUpdated,
   lifeInsuranceUpdated,
+  requestNumberUpdated,
 } = calculatorSlice.actions;
 
 const selectCalculatorStep = (state) => state.calculator.step;
@@ -121,6 +130,7 @@ const selectCapital = (state) => state.calculator.formState.capital;
 const selectCasco = (state) => state.calculator.formState.casco;
 const selectLifeInsurance = (state) => state.calculator.formState.lifeInsurance;
 const selectPrice = (state) => state.calculator.formState.price;
+const selectRequestNumber = (state) => state.calculator.requestNumber;
 const selectIsStep2Active = createSelector(
   selectCalculatorStep,
   (currentStep) => currentStep > FormStep.FIRST,
@@ -144,6 +154,7 @@ export {
   capitalUpdated,
   cascoUpdated,
   lifeInsuranceUpdated,
+  requestNumberUpdated,
   selectCalculatorStep,
   selectCalculatorCreditType,
   selectCalculatorFormState,
@@ -154,6 +165,7 @@ export {
   selectCasco,
   selectLifeInsurance,
   selectPrice,
+  selectRequestNumber,
   selectIsStep2Active,
   selectIsStep3Active
 };
