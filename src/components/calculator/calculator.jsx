@@ -6,16 +6,19 @@ import CalculatorStep1 from '../calculator-step1/calculator-step1';
 import WrapperFluid from '../wrapper-fluid/wrapper-fluid';
 import CalculatorStep2 from '../calculator-step2/calculator-step2';
 import { useSelector } from 'react-redux';
-import { selectIsStep2Active, selectIsStep3Active } from '../../store/calculatorSlice';
-import { HomeId } from '../../const';
+import { selectCalculatorCreditType, selectIsStep2Active, selectIsStep3Active } from '../../store/calculatorSlice';
+import { FormConfig, HomeId } from '../../const';
 import Proposition from '../proposition/proposition';
 import CalculatorAlert from '../calculator-alert/calculator-alert';
 import CalculatorStep3 from '../calculator-step3/calculator-step3';
+import useCreditSum from '../../hooks/use-credit-sum';
 
 function Calculator({ className }) {
   const isStep2Active = useSelector(selectIsStep2Active);
   const isStep3Active = useSelector(selectIsStep3Active);
-  const isAlertVisible = false;
+  const creditType = useSelector(selectCalculatorCreditType);
+  const creditSum = useCreditSum();
+  const isAlertVisible = isStep2Active && creditSum < FormConfig[creditType].min;
 
   const handleInputChange = (evt) => {
     evt.preventDefault();

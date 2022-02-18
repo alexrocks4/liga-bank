@@ -114,11 +114,13 @@ const {
 const selectCalculatorStep = (state) => state.calculator.step;
 const selectCalculatorCreditType = (state) => state.calculator.creditType;
 const selectCalculatorFormState = (state) => state.calculator.formState;
+const selectFirstPayment = (state) => state.calculator.formState.firstPayment;
 const selectFirstPaymentPercent = (state) => state.calculator.formState.firstPaymentPercent;
 const selectDuration = (state) => state.calculator.formState.duration;
 const selectCapital = (state) => state.calculator.formState.capital;
 const selectCasco = (state) => state.calculator.formState.casco;
 const selectLifeInsurance = (state) => state.calculator.formState.lifeInsurance;
+const selectPrice = (state) => state.calculator.formState.price;
 const selectIsStep2Active = createSelector(
   selectCalculatorStep,
   (currentStep) => currentStep > FormStep.FIRST,
@@ -145,11 +147,13 @@ export {
   selectCalculatorStep,
   selectCalculatorCreditType,
   selectCalculatorFormState,
+  selectFirstPayment,
   selectFirstPaymentPercent,
   selectDuration,
   selectCapital,
   selectCasco,
   selectLifeInsurance,
+  selectPrice,
   selectIsStep2Active,
   selectIsStep3Active
 };

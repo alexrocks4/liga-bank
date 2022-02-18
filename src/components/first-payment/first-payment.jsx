@@ -36,7 +36,7 @@ function FirstPayment({ className }) {
   };
 
   const handleRangeChange = (evt) => {
-    dispatch(firstPaymentPercentUpdated(evt.target.value));
+    dispatch(firstPaymentPercentUpdated(evt.target.valueAsNumber));
   };
 
   return (

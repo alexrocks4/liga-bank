@@ -104,14 +104,14 @@ const FormConfig = {
       minPricePercentage: 20,
       maxPricePercentage: 100,
       stepPricePercentage: 5,
-      defaultValue: 200000,
+      defaultValue: 400000,
     },
     duration: {
       label: 'Срок кредитования',
       min: 1,
       max: 5,
       step: 1,
-      defaultValue: 5,
+      defaultValue: 1,
     },
     casco: {
       label: 'Оформить КАСКО в нашем банке',
@@ -143,6 +143,7 @@ const KeyName = {
   ARROWRIGHT: 'ArrowRight',
 };
 
+const MONTHS_IN_A_YEAR = 12;
 export {
   AppRoute,
   Breakpoint,
@@ -156,5 +157,6 @@ export {
   Noun,
   HomeId,
   CreditTypeOption,
-  KeyName
+  KeyName,
+  MONTHS_IN_A_YEAR
 };
