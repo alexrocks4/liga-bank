@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './price.module.scss';
-import { formatNumeric, formatPrice, isAllowedKey, parseNumeric } from '../../utils';
+import { formatNumeric, formatPrice, getPrice, isAllowedKey, parseNumeric } from '../../utils';
 import Button from '../button/button';
 import FormFieldBase from '../form-field-base/form-field-base';
 import { useDispatch } from 'react-redux';
@@ -37,12 +37,12 @@ function Price({ className, data, value, onChange }) {
 
   const handleIncrementClick = () => {
     const newPrice = value + step;
-    dispatch(priceUpdated(newPrice > max ? max : newPrice));
+    dispatch(priceUpdated(getPrice(newPrice, min, max)));
   };
 
   const handleDecrementClick = () => {
     const newPrice = value - step;
-    dispatch(priceUpdated(newPrice < min ? min : newPrice));
+    dispatch(priceUpdated(getPrice(newPrice, min, max)));
   };
 
   const handleKeyDown = (evt) => {

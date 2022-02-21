@@ -66,6 +66,18 @@ const isAllowedKey = (key) => (
 
 const formatRequestNumber = (number) => number.toString().padStart(REQUEST_NUMBER_MIN_LENGTH, 0);
 
+const getPrice = (price, min, max) => {
+  if (price < min) {
+    return min;
+  }
+
+  if (price > max) {
+    return max;
+  }
+
+  return price;
+};
+
 export {
   isEscKeyPressed,
   Media,
@@ -74,5 +86,6 @@ export {
   formatNumeric,
   parseNumeric,
   isAllowedKey,
-  formatRequestNumber
+  formatRequestNumber,
+  getPrice
 };
