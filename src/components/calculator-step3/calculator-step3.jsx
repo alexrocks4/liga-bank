@@ -13,6 +13,12 @@ import { CreditType, LocalStorageKey } from '../../const';
 import { useEffect } from 'react';
 import { loadFromLocalStorage, saveToLocalStorage } from '../../local-storage';
 
+const InputName = {
+  FIO: 'fio',
+  PHONE: 'phone',
+  EMAIL: 'email',
+};
+
 const textContent = {
   [CreditType.MORTGAGE]: {
     creditType: 'Ипотека',
@@ -67,6 +73,10 @@ function CalculatorStep3({ className }) {
   };
 
   const handleInputChange = (evt) => {
+    if (evt.target.name === InputName.PHONE && !/^\+?[\d()]*$/.test(evt.target.value)) {
+      return;
+    }
+
     setFormData((state) => ({
       ...state,
       [evt.target.name]: evt.target.value,
@@ -116,7 +126,7 @@ function CalculatorStep3({ className }) {
             type="text"
             className={styles['calculator-step3__input']}
             value={formData.fio}
-            name="fio"
+            name={InputName.FIO}
             placeholder="ФИО"
             autoFocus
             onChange={handleInputChange}
@@ -133,7 +143,7 @@ function CalculatorStep3({ className }) {
             type="text"
             className={styles['calculator-step3__input']}
             value={formData.phone}
-            name="phone"
+            name={InputName.PHONE}
             placeholder="Телефон"
             onChange={handleInputChange}
             required
@@ -149,7 +159,7 @@ function CalculatorStep3({ className }) {
             type="email"
             className={styles['calculator-step3__input']}
             value={formData.email}
-            name="email"
+            name={InputName.EMAIL}
             placeholder="E-mail"
             onChange={handleInputChange}
             required
