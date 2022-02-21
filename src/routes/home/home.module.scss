@@ -37,3 +37,15 @@
     margin-bottom: 62px;
   }
 }
+
+.home__calculator--step2 {
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 30px;
+  }
+}
+
+.home__calculator--step3 {
+  @media (min-width: $large-viewport-width) {
+    margin-bottom: 100px;
+  }
+}
