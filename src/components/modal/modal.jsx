@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './modal.module.scss';
 import { isEscKeyPressed } from '../../utils';
+import FocusTrap from 'focus-trap-react';
 
 function Modal({ className, onClose, children }) {
   const [ modalRootElement, setModalRootElement ] = useState(null);
@@ -52,7 +53,11 @@ function Modal({ className, onClose, children }) {
         onClick={handleModalClick}
         ref={modalRef}
       >
-        {children}
+        <FocusTrap>
+          <div>
+            {children}
+          </div>
+        </FocusTrap>
       </div>
     ), modalRootElement);
   }
